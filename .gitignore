@@ -30,7 +30,7 @@ artifacts/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
-
+*.csproject
 # NuGet Packages
 *.nupkg
 # NuGet Symbol Packages

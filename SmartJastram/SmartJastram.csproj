@@ -125,6 +125,7 @@
     <Compile Include="Services\DBBroker.cs" />
     <Compile Include="Services\Managers\BUTypeManage.cs" />
     <Compile Include="Services\Managers\UsuarioManage.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Views\AdminUsuariosPage.xaml.cs">
       <DependentUpon>AdminUsuariosPage.xaml</DependentUpon>
     </Compile>
@@ -204,7 +205,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

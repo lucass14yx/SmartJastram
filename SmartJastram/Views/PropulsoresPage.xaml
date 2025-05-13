@@ -1,0 +1,90 @@
+﻿<Page x:Class="SmartJastram.Views.PropulsoresPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SmartJastram.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PropulsoresPage">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Título de la página -->
+        <TextBlock Grid.Row="0" 
+                   Text="Gestión de Propulsores" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,20"/>
+
+        <!-- Controles de búsqueda/filtrado -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBox Width="200" Height="25" Margin="0,0,10,0" 
+                     VerticalContentAlignment="Center"
+                     Text="Buscar propulsor..." />
+            <Button Content="Buscar" Width="80" Height="25"/>
+            <Button x:Name="btnNewThruster" Content="Nuevo Propulsor" Width="120" Height="25" Margin="20,0,0,0" Click="BtnNuevoPropulsor_Click" Visibility="Hidden"/>
+        </StackPanel>
+
+        <!-- DataGrid con los propulsores -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+              HorizontalScrollBarVisibility="Auto"
+              Margin="5" Grid.Row="2">
+            <DataGrid x:Name="BUTypesDataGrid"
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              HeadersVisibility="Column"
+              ScrollViewer.CanContentScroll="True"
+              HorizontalScrollBarVisibility="Visible"
+              VerticalScrollBarVisibility="Disabled">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Designación" Binding="{Binding Designacion}" MinWidth="80" CanUserResize="False"/>
+                    <DataGridTextColumn Header="i" Binding="{Binding i, StringFormat={}{0:F3}}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="n1" Binding="{Binding n1}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="n2" Binding="{Binding n2}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="s" Binding="{Binding s}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="L" Binding="{Binding L}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="l1" Binding="{Binding l1}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="l2" Binding="{Binding l2}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="B" Binding="{Binding B}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="C" Binding="{Binding C}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="D" Binding="{Binding D}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="E" Binding="{Binding E}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="F" Binding="{Binding F}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="a" Binding="{Binding a}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="d m6" Binding="{Binding d_m6}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="A Std." Binding="{Binding A_Standard}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="A min" Binding="{Binding A_min}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Gear" Binding="{Binding Gear}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Coupling" Binding="{Binding Coupling}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Propeller" Binding="{Binding Propeller}" MinWidth="60" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Tunnel" Binding="{Binding Tunnel}" MinWidth="50" CanUserResize="False"/>
+                    <DataGridTextColumn Header="per Meter" Binding="{Binding per_Meter}" MinWidth="60" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Motor Found" Binding="{Binding Motor_Found}" MinWidth="80" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Oil Volume Gear" Binding="{Binding Oil_Volume_Gear}" MinWidth="100" CanUserResize="False"/>
+                    <DataGridTextColumn Header="DNV k1 dp" Binding="{Binding DNV_k1_dp}" MinWidth="80" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Pull-up Plate Wheel" Binding="{Binding Pullup_Plate_Wheel, StringFormat={}{0:F3}}" MinWidth="100" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Pull-up Propeller" Binding="{Binding Pullup_Propeller, StringFormat={}{0:F3}}" MinWidth="100" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Coupling Type" Binding="{Binding Coupling_type}" MinWidth="80" CanUserResize="False"/>
+
+                    <DataGridTemplateColumn x:Name="dgtcActions"  Header="Acciones" MinWidth="130" CanUserResize="False" Visibility="Hidden">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Editar" Width="60" Margin="0,0,5,0" Click="BtnEditBUType_Click" Tag="{Binding ID}"/>
+                                    <Button Content="Eliminar" Width="60" Click="BtnDeleteBUType_Click" Tag="{Binding ID}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Page>

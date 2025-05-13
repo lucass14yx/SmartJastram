@@ -1,0 +1,320 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\services\\managers\\usuariomanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:services\\managers\\usuariomanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\propulsorespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\propulsorespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\propulsorespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\propulsorespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\services\\managers\\butypemanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:services\\managers\\butypemanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\models\\butype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:models\\butype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\adminusuariospage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\adminusuariospage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\newusuariopage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\newusuariopage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\newpropulsorpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\newpropulsorpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\services\\dbbroker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:services\\dbbroker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\adminusuariospage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\adminusuariospage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\newusuariopage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\newusuariopage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\views\\newpropulsorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:views\\newpropulsorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|c:\\users\\usuario\\desktop\\smartjastram-project\\smartjastram\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F585AE2-C4EB-4FE8-9BEC-F4B01464EA73}|SmartJastram.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PropulsoresPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\PropulsoresPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\PropulsoresPage.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\PropulsoresPage.xaml.cs",
+              "RelativeToolTip": "Views\\PropulsoresPage.xaml.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAADwv3QAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T13:11:58.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PropulsoresPage.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\PropulsoresPage.xaml",
+              "RelativeDocumentMoniker": "Views\\PropulsoresPage.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\PropulsoresPage.xaml",
+              "RelativeToolTip": "Views\\PropulsoresPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T13:23:46.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BUTypeManage.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Services\\Managers\\BUTypeManage.cs",
+              "RelativeDocumentMoniker": "Services\\Managers\\BUTypeManage.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Services\\Managers\\BUTypeManage.cs",
+              "RelativeToolTip": "Services\\Managers\\BUTypeManage.cs",
+              "ViewState": "AgIAAMUAAAAAAAAAAAAowNMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T12:59:15.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BUType.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Models\\BUType.cs",
+              "RelativeDocumentMoniker": "Models\\BUType.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Models\\BUType.cs",
+              "RelativeToolTip": "Models\\BUType.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAA7wP0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T13:16:27.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioManage.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Services\\Managers\\UsuarioManage.cs",
+              "RelativeDocumentMoniker": "Services\\Managers\\UsuarioManage.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Services\\Managers\\UsuarioManage.cs",
+              "RelativeToolTip": "Services\\Managers\\UsuarioManage.cs",
+              "ViewState": "AgIAAPYAAAAAAAAAAAAIwGUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T12:58:52.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminUsuariosPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\AdminUsuariosPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\AdminUsuariosPage.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\AdminUsuariosPage.xaml.cs",
+              "RelativeToolTip": "Views\\AdminUsuariosPage.xaml.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAiwEEAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T16:36:48.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NewUsuarioPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\NewUsuarioPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\NewUsuarioPage.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\NewUsuarioPage.xaml.cs",
+              "RelativeToolTip": "Views\\NewUsuarioPage.xaml.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAgwEsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T18:45:55.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NewPropulsorPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\NewPropulsorPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\NewPropulsorPage.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\NewPropulsorPage.xaml.cs",
+              "RelativeToolTip": "Views\\NewPropulsorPage.xaml.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwEcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T13:39:12.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Views\\MainWindow.xaml.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA7wCUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T15:23:56.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\LoginWindow.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\LoginWindow.xaml",
+              "RelativeToolTip": "Views\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T19:14:45.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\LoginWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\LoginWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\LoginWindow.xaml.cs",
+              "RelativeToolTip": "Views\\LoginWindow.xaml.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAADwv2wAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T15:23:29.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DBBroker.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Services\\DBBroker.cs",
+              "RelativeDocumentMoniker": "Services\\DBBroker.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Services\\DBBroker.cs",
+              "RelativeToolTip": "Services\\DBBroker.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAqwH4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T13:03:47.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Models\\Usuario.cs",
+              "RelativeToolTip": "Models\\Usuario.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAwFoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T16:29:18.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AdminUsuariosPage.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\AdminUsuariosPage.xaml",
+              "RelativeDocumentMoniker": "Views\\AdminUsuariosPage.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\AdminUsuariosPage.xaml",
+              "RelativeToolTip": "Views\\AdminUsuariosPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T16:26:53.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "NewUsuarioPage.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\NewUsuarioPage.xaml",
+              "RelativeDocumentMoniker": "Views\\NewUsuarioPage.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\NewUsuarioPage.xaml",
+              "RelativeToolTip": "Views\\NewUsuarioPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T16:45:53.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\MainWindow.xaml",
+              "RelativeToolTip": "Views\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T15:19:56.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "NewPropulsorPage.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\NewPropulsorPage.xaml",
+              "RelativeDocumentMoniker": "Views\\NewPropulsorPage.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\Views\\NewPropulsorPage.xaml",
+              "RelativeToolTip": "Views\\NewPropulsorPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T13:33:00.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\SmartJastram-Project\\SmartJastram\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T15:49:53.689Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

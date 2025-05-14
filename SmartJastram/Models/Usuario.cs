@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,8 @@ namespace SmartJastram.Models
 
         public string RolTipo { get; set; }
 
+        public string NombreCompleto { get; set; }
+
 
         public UsuarioManage um = new UsuarioManage();
 
@@ -74,6 +77,7 @@ namespace SmartJastram.Models
             Contraseña = contraseña;
             RolID = rolID;
             TipoRol();
+            NombreCompleto = UneNombre();
         }
 
         /// <summary>
@@ -89,12 +93,13 @@ namespace SmartJastram.Models
             Contraseña = contraseña;
             RolID = rolID;
             TipoRol();
+            NombreCompleto = UneNombre();
         }
 
         /// <summary>
         /// Devuelve el nombre completo del usuario
         /// </summary>
-        public string NombreCompleto()
+        public string UneNombre()
         {
             return $"{Nombre} {Apellidos}";
         }
@@ -113,7 +118,7 @@ namespace SmartJastram.Models
                 RolTipo = "Superadministrador";
             }
         }
-        public List<Usuario> GetUsuarios()
+        public ObservableCollection<Usuario> GetUsuarios()
         {
             return um.SelectAll();
         }

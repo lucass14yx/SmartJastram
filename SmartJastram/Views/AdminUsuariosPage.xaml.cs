@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace SmartJastram.Views
     public partial class AdminUsuariosPage : Page
     {
         private Usuario _currentUser;
-        private List<Usuario> _usuarios = new List<Usuario>();
+        private ObservableCollection<Usuario> _usuarios = new ObservableCollection<Usuario>();
 
         public AdminUsuariosPage(Usuario currentUser)
         {

@@ -1,8 +1,7 @@
 ﻿<Application x:Class="SmartJastram.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SmartJastram"
-             StartupUri="Views/LoginWindow.xaml">
+             xmlns:local="clr-namespace:SmartJastram">
     <Application.Resources>
          
     </Application.Resources>

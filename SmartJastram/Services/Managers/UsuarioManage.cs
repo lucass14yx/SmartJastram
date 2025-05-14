@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using ReadingClub.persistence;
+using SmartJastram.Helpers;
 using SmartJastram.Models;
 
 namespace SmartJastram.Services.Managers
@@ -17,10 +19,10 @@ namespace SmartJastram.Services.Managers
         /// Obtiene todos los usuarios de la base de datos
         /// </summary>
         /// <returns>Lista de todos los usuarios</returns>
-        public List<Usuario> SelectAll()
+        public ObservableCollection<Usuario> SelectAll()
         {
             List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM smartjastramapp.usuarios;");
-            List<Usuario> usuarios = new List<Usuario>();
+            ObservableCollection<Usuario> usuarios = new ObservableCollection<Usuario>();
 
             foreach (List<Object> c in aux)
             {
@@ -66,7 +68,7 @@ namespace SmartJastram.Services.Managers
                             (@Nombre, @Apellidos, @NumeroTelefonico, @Email, @Contraseña, @RolID);";
 
             // Si la contraseña no está cifrada, aplicamos SHA512
-            string contraseña = CifraSHA(usuario.Contraseña);
+            string contraseña = SecurityHelper.CifraSHA(usuario.Contraseña);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
@@ -99,7 +101,7 @@ namespace SmartJastram.Services.Managers
                             WHERE ID = @ID;";
 
             // Si la contraseña no está cifrada, aplicamos SHA512
-            string contraseña = CifraSHA(usuario.Contraseña);
+            string contraseña = SecurityHelper.CifraSHA(usuario.Contraseña);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
@@ -254,31 +256,6 @@ namespace SmartJastram.Services.Managers
                 );
             }
             return null;
-        }
-
-        /// <summary>
-        /// Cifra una cadena usando el algoritmo SHA512
-        /// </summary>
-        /// <param name="cadena">Cadena a cifrar</param>
-        /// <returns>Cadena cifrada en formato hexadecimal</returns>
-        private static string CifraSHA(string cadena)
-        {
-            using (SHA512 sha512 = SHA512.Create())
-            {
-                byte[] bytes = Encoding.UTF8.GetBytes(cadena);
-
-                // Sacar hash
-                byte[] hash_bytes = sha512.ComputeHash(bytes);
-
-                // Pasar a hexadecimal
-                StringBuilder sb = new StringBuilder();
-                foreach (byte b in hash_bytes)
-                {
-                    sb.Append(b.ToString("x2")); // Para hacerlo Hexadecimal
-                }
-
-                return sb.ToString();
-            }
         }
     }
 }

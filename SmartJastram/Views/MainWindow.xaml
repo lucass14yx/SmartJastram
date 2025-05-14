@@ -1,18 +1,18 @@
 ﻿<Window x:Class="SmartJastram.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SmartJastram"
-        mc:Ignorable="d"
+        xmlns:views="clr-namespace:SmartJastram.Views"
         Title="SmartJastram" WindowState="Maximized" ResizeMode="CanResize">
+
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
+        <!-- Encabezado -->
         <!-- Encabezado -->
         <Border Grid.Row="0" Background="#005aa9" Padding="10">
             <StackPanel Orientation="Horizontal">
@@ -25,12 +25,18 @@
                     Foreground="White" 
                     FontSize="18" 
                     VerticalAlignment="Center"/>
-                <TextBlock x:Name="UserInfoText" 
-                           Text="Usuario: Null" 
+                <TextBlock x:Name="UserInfoText"  
                            Foreground="LightGray" 
                            Margin="20,0,0,0" 
-                           VerticalAlignment="Center"/>
-                
+                           VerticalAlignment="Center">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="Usuario: {0}, {1}">
+                            <Binding Path="CurrentUser.NombreCompleto"/>
+                            <Binding Path="CurrentUser.RolTipo"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+
             </StackPanel>
         </Border>
 
@@ -49,7 +55,7 @@
                             Background="Transparent" 
                             Foreground="White" 
                             BorderThickness="0"
-                            Click="NavigateToPropulsoresPage"/>
+                            Command="{Binding NavigateToPropulsoresCommand}"/>
 
                     <Button Content="Formularios" 
                             Height="40" 
@@ -77,21 +83,15 @@
                             Background="Transparent" 
                             Foreground="White" 
                             BorderThickness="0"
-                            Click="NavigateToUsersPage"/>
+                            Command="{Binding NavigateToUsersCommand}"/>
                 </StackPanel>
             </Border>
 
-            <!-- Frame para mostrar páginas -->
+            <!-- Frame para páginas -->
             <Frame Grid.Column="1" 
-                   x:Name="MainFrame" 
-                   NavigationUIVisibility="Hidden"/>
+               x:Name="MainFrame" 
+               NavigationUIVisibility="Hidden"
+               Content="{Binding CurrentPage, Mode=OneWay}"/>
         </Grid>
-
-        <!-- Pie de página -->
-        <Border Grid.Row="2" Background="#005aa9" Padding="5">
-            <TextBlock Text="© 2025 - Sistema de Gestión SmartJastram" 
-                       Foreground="White" 
-                       HorizontalAlignment="Center"/>
-        </Border>
     </Grid>
 </Window>

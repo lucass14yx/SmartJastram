@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SmartJastram.Views"
+      xmlns:viewmodels="clr-namespace:SmartJastram.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="800"
       Title="Nuevo Propulsor">
@@ -18,7 +19,7 @@
 
             <!-- Título de la página -->
             <TextBlock Grid.Row="0" 
-                       Text="Nuevo Tipo de Propulsor" 
+                       Text="{Binding PageTitle}" 
                        FontSize="24" 
                        FontWeight="Bold" 
                        Margin="0,0,0,20"/>
@@ -35,54 +36,54 @@
                     <GroupBox Header="Datos básicos" Padding="10" Margin="0,0,0,10">
                         <StackPanel>
                             <Label Content="Designación:" Margin="0,5,0,0"/>
-                            <TextBox x:Name="txtDesignacion" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding Designacion, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor i:"/>
-                            <TextBox x:Name="txtI" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding I, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor n1:"/>
-                            <TextBox x:Name="txtN1" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding N1, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor n2:"/>
-                            <TextBox x:Name="txtN2" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding N2, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="Dimensiones principales" Padding="10" Margin="0,0,0,10">
                         <StackPanel>
                             <Label Content="Valor B:"/>
-                            <TextBox x:Name="txtB" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding B, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor C:"/>
-                            <TextBox x:Name="txtC" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding C, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor D:"/>
-                            <TextBox x:Name="txtD" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding D, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor E:"/>
-                            <TextBox x:Name="txtE" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding E, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor F:"/>
-                            <TextBox x:Name="txtF" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding F, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="Valores medidas" Padding="10">
                         <StackPanel>
                             <Label Content="Valor a:"/>
-                            <TextBox x:Name="txtA" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding A, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor d(m6):"/>
-                            <TextBox x:Name="txtDM6" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding DM6, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor A Standard:"/>
-                            <TextBox x:Name="txtAStandard" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding AStandard, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor A min:"/>
-                            <TextBox x:Name="txtAMin" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding AMin, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor s:"/>
-                            <TextBox x:Name="txtS" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding S, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>
@@ -92,54 +93,54 @@
                     <GroupBox Header="Longitudes" Padding="10" Margin="0,0,0,10">
                         <StackPanel>
                             <Label Content="Valor L:"/>
-                            <TextBox x:Name="txtL" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding L, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor l1:"/>
-                            <TextBox x:Name="txtL1" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding L1, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Valor l2:"/>
-                            <TextBox x:Name="txtL2" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding L2, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="Componentes" Padding="10" Margin="0,0,0,10">
                         <StackPanel>
                             <Label Content="Gear:"/>
-                            <TextBox x:Name="txtGear" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding Gear, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Coupling:"/>
-                            <TextBox x:Name="txtCoupling" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding Coupling, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Propeller:"/>
-                            <TextBox x:Name="txtPropeller" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding Propeller, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Tunnel:"/>
-                            <TextBox x:Name="txtTunnel" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding Tunnel, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Per Meter:"/>
-                            <TextBox x:Name="txtPerMeter" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding PerMeter, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </GroupBox>
 
                     <GroupBox Header="Datos adicionales" Padding="10">
                         <StackPanel>
                             <Label Content="Motor Found:"/>
-                            <TextBox x:Name="txtMotorFound" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding MotorFound, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Oil Volume Gear:"/>
-                            <TextBox x:Name="txtOilVolumeGear" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding OilVolumeGear, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="DNV k=1 dp:"/>
-                            <TextBox x:Name="txtDNVK1dp" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding DNVK1dp, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Pull-up Plate Wheel:"/>
-                            <TextBox x:Name="txtPullupPlateWheel" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding PullupPlateWheel, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Pull-up Propeller:"/>
-                            <TextBox x:Name="txtPullupPropeller" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding PullupPropeller, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Coupling Type:"/>
-                            <TextBox x:Name="txtCouplingType" Height="25" Margin="0,0,0,10"/>
+                            <TextBox Height="25" Margin="0,0,0,10" Text="{Binding CouplingType, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>
@@ -147,8 +148,8 @@
 
             <!-- Botones de acción -->
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                <Button x:Name="btnCancelar" Content="Cancelar" Width="100" Height="30" Margin="0,0,10,0" Click="BtnCancelar_Click"/>
-                <Button x:Name="btnGuardar" Content="Guardar" Width="100" Height="30" Click="BtnGuardar_Click"/>
+                <Button Content="Cancelar" Width="100" Height="30" Margin="0,0,10,0" Command="{Binding CancelCommand}"/>
+                <Button Content="Guardar" Width="100" Height="30" Command="{Binding SaveCommand}"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>

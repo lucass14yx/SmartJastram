@@ -4,9 +4,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SmartJastram.Views"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+      xmlns:viewmodels="clr-namespace:SmartJastram.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PropulsoresPage">
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -27,21 +33,24 @@
             <TextBox Width="200" Height="25" Margin="0,0,10,0" 
                      VerticalContentAlignment="Center"
                      Text="Buscar propulsor..." />
-            <Button Content="Buscar" Width="80" Height="25"/>
-            <Button x:Name="btnNewThruster" Content="Nuevo Propulsor" Width="120" Height="25" Margin="20,0,0,0" Click="BtnNuevoPropulsor_Click" Visibility="Hidden"/>
+            <Button Content="Buscar" Width="80" Height="25" Command="{Binding RefreshPropulsoresCommand}"/>
+            <Button Content="Nuevo Propulsor" Width="120" Height="25" Margin="20,0,0,0" 
+                    Command="{Binding NavigateToNewPropulsorCommand}"
+                    Visibility="{Binding CanManagePropulsores, Converter={StaticResource BooleanToVisibilityConverter}}"/>
         </StackPanel>
 
         <!-- DataGrid con los propulsores -->
         <ScrollViewer VerticalScrollBarVisibility="Auto" 
               HorizontalScrollBarVisibility="Auto"
               Margin="5" Grid.Row="2">
-            <DataGrid x:Name="BUTypesDataGrid"
-              AutoGenerateColumns="False"
+            <DataGrid AutoGenerateColumns="False"
               CanUserAddRows="False"
               HeadersVisibility="Column"
               ScrollViewer.CanContentScroll="True"
               HorizontalScrollBarVisibility="Visible"
-              VerticalScrollBarVisibility="Disabled">
+              VerticalScrollBarVisibility="Disabled"
+              ItemsSource="{Binding Propulsores}"
+              SelectedItem="{Binding SelectedPropulsor}">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Designación" Binding="{Binding Designacion}" MinWidth="80" CanUserResize="False"/>
@@ -73,12 +82,17 @@
                     <DataGridTextColumn Header="Pull-up Propeller" Binding="{Binding Pullup_Propeller, StringFormat={}{0:F3}}" MinWidth="100" CanUserResize="False"/>
                     <DataGridTextColumn Header="Coupling Type" Binding="{Binding Coupling_type}" MinWidth="80" CanUserResize="False"/>
 
-                    <DataGridTemplateColumn x:Name="dgtcActions"  Header="Acciones" MinWidth="130" CanUserResize="False" Visibility="Hidden">
+                    <DataGridTemplateColumn Header="Acciones" MinWidth="130" CanUserResize="False" 
+                                          Visibility="{Binding DataContext.CanManagePropulsores, RelativeSource={RelativeSource AncestorType=DataGrid}, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content="Editar" Width="60" Margin="0,0,5,0" Click="BtnEditBUType_Click" Tag="{Binding ID}"/>
-                                    <Button Content="Eliminar" Width="60" Click="BtnDeleteBUType_Click" Tag="{Binding ID}"/>
+                                    <Button Content="Editar" Width="60" Margin="0,0,5,0" 
+                                            Command="{Binding DataContext.EditPropulsorCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                            CommandParameter="{Binding}"/>
+                                    <Button Content="Eliminar" Width="60" 
+                                            Command="{Binding DataContext.DeletePropulsorCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                            CommandParameter="{Binding}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

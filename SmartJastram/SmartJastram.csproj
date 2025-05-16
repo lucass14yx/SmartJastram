@@ -131,6 +131,8 @@
     <Compile Include="ViewModels\Command\RelayCommand.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\NewPropulsorPageViewModel.cs" />
+    <Compile Include="ViewModels\PropulsoresPageViewModel.cs" />
     <Compile Include="Views\AdminUsuariosPage.xaml.cs">
       <DependentUpon>AdminUsuariosPage.xaml</DependentUpon>
     </Compile>

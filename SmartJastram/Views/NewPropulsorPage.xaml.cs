@@ -33,6 +33,12 @@ namespace SmartJastram.Views
             _currentUser = currentUser;
             manager = new BUTypeManage();
         }
+        public NewPropulsorPage(Usuario currentUser, BUType propulsorToEdit)
+        {
+            InitializeComponent();
+            _currentUser = currentUser;
+            manager = new BUTypeManage();
+        }
 
         /// <summary>
         /// Maneja el evento de clic en el botón Guardar

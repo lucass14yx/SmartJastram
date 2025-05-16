@@ -3,6 +3,9 @@ using SmartJastram.Services.Managers;
 using System.Windows.Input;
 using System.Windows;
 using System;
+using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using System.Collections.Generic;
 
 
 namespace SmartJastram.ViewModels
@@ -58,6 +61,22 @@ namespace SmartJastram.ViewModels
             }
         }
 
+        public class RolItem
+        {
+            public int ID { get; set; }
+            public string Nombre { get; set; }
+        }
+        private ObservableCollection<RolItem> _roles;
+        public ObservableCollection<RolItem> Roles
+        {
+            get => _roles;
+            set
+            {
+                _roles = value;
+                OnPropertyChanged();
+            }
+        }
+
         private int _rolID;
         public int RolID
         {
@@ -107,8 +126,11 @@ namespace SmartJastram.ViewModels
             // Configurar título de la página
             PageTitle = _isEditMode ? "Editar Usuario" : "Nuevo Usuario";
 
+            // Inicializar la colección de roles
+            InitializeRoles();
+
             // Valores por defecto
-            
+
             RolID = 1; // Rol por defecto (Operario)
 
             // Si estamos en modo edición, cargar los datos del usuario
@@ -116,6 +138,18 @@ namespace SmartJastram.ViewModels
             {
                 CargarDatosUsuario();
             }
+        }
+        private void InitializeRoles()
+        {
+            // Crear una clase simple para los roles
+            var rolesList = new List<RolItem>
+            {
+                new RolItem { ID = 1, Nombre = "Operario" },
+                new RolItem { ID = 2, Nombre = "Administrador" },
+                new RolItem { ID = 3, Nombre = "Superadministrador" }
+            };
+
+            Roles = new ObservableCollection<RolItem>(rolesList);
         }
 
         private void CargarDatosUsuario()

@@ -133,6 +133,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NewPropulsorPageViewModel.cs" />
+    <Compile Include="ViewModels\NewUsuarioPageViewModel.cs" />
     <Compile Include="ViewModels\PropulsoresPageViewModel.cs" />
     <Compile Include="Views\AdminUsuariosPage.xaml.cs">
       <DependentUpon>AdminUsuariosPage.xaml</DependentUpon>

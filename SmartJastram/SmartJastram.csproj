@@ -127,6 +127,7 @@
     <Compile Include="Services\DBBroker.cs" />
     <Compile Include="Services\Managers\BUTypeManage.cs" />
     <Compile Include="Services\Managers\UsuarioManage.cs" />
+    <Compile Include="ViewModels\AdminUsuariosPageViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Command\RelayCommand.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

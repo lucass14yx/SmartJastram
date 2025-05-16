@@ -88,7 +88,7 @@ namespace SmartJastram.Services.Managers
         /// </summary>
         /// <param name="usuario">El objeto Usuario con los datos actualizados</param>
         /// <param name="contraseñaSinCifrar">Si es true, cifrará la contraseña antes de actualizar</param>
-        public void Update(Usuario usuario)
+        public void Modify(Usuario usuario)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = @"UPDATE smartjastramapp.usuarios SET 

@@ -1,70 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 using SmartJastram.Models;
+using SmartJastram.ViewModels;
 
 namespace SmartJastram.Views
 {
     /// <summary>
-    /// Lógica de interacción para PropulsoresPage.xaml
+    /// Lógica de interacción para AdminUsuariosPage.xaml
     /// </summary>
     public partial class AdminUsuariosPage : Page
     {
-        private Usuario _currentUser;
-        private ObservableCollection<Usuario> _usuarios = new ObservableCollection<Usuario>();
+        private readonly AdminUsuariosPageViewModel _viewModel;
 
-        public AdminUsuariosPage(Usuario currentUser)
+        public AdminUsuariosPage(Usuario currentUsuario)
         {
             InitializeComponent();
-            _currentUser = currentUser;
+            _viewModel = new AdminUsuariosPageViewModel(currentUsuario);
+            DataContext = _viewModel;
 
-            // Aquí cargarías los datos de la base de datos
-            CargarUsuarios();
+            // Suscribirse a eventos de navegación
+            _viewModel.NavigateToNewUsuarioRequested += OnNavigateToNewUsuario;
+            _viewModel.EditUsuarioRequested += OnEditUsuario;
         }
 
-        public void CargarUsuarios()
+        private void OnNavigateToNewUsuario()
         {
-            // Esta función simula la carga de datos
-            // En un caso real, se conectaría a la base de datos
-            // y se obtendrían los datos de los propulsores
-
-            Usuario emptyUsuario = new Usuario();
-
-            _usuarios = emptyUsuario.GetUsuarios();
-
-
-            // Asignar los datos al DataGrid
-            ((DataGrid)this.FindName("UsuariosDataGrid")).ItemsSource = _usuarios;
+            NavigationService?.Navigate(new NewUsuarioPage(_viewModel.CurrentUser));
         }
-        /// <summary>  
-        /// Método que permite insertar un nuevo propulsor en la base de datos.  
-        /// </summary>  
-        /// <param name="nuevoPropulsor">Objeto que contiene los datos del nuevo propulsor.</param>  
-        private void InsertarUsuario(Usuario nuevoUsuario)
+
+        private void OnEditUsuario(Usuario usuario)
         {
-            // Aquí se implementaría la lógica para insertar el nuevo propulsor en la base de datos.  
-            // Por ejemplo, se podría llamar a un servicio o repositorio para guardar los datos.  
-            MessageBox.Show($"Usuario {nuevoUsuario.Email} insertado correctamente.");
-        }
-        /// <summary>
-        /// Maneja el evento de clic en el botón Nuevo Propulsor
-        /// </summary>
-        private void BtnNuevoUsuario_Click(object sender, RoutedEventArgs e)
-        {
-            // Navegar a la página de nuevo propulsor
-            NavigationService.Navigate(new NewUsuarioPage(_currentUser));
+            NavigationService?.Navigate(new NewUsuarioPage(_viewModel.CurrentUser, usuario));
         }
     }
 }

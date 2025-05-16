@@ -29,6 +29,20 @@ namespace SmartJastram.Views
             if (btnCancelar != null) btnCancelar.Click += BtnCancelar_Click;
             
         }
+        public NewUsuarioPage(Usuario currentUser, Usuario userToEdit)
+        {
+            InitializeComponent();
+            _currentUser = currentUser;
+            CargarRoles();
+
+            // Conectar eventos de los botones  
+            var btnGuardar = (Button)FindName("btnGuardar");
+            var btnCancelar = (Button)FindName("btnCancelar");
+
+            if (btnGuardar != null) btnGuardar.Click += BtnGuardar_Click;
+            if (btnCancelar != null) btnCancelar.Click += BtnCancelar_Click;
+
+        }
 
         private void CargarRoles()
         {

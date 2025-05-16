@@ -4,9 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SmartJastram.Views"
+      xmlns:viewmodels="clr-namespace:SmartJastram.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Adminitración de Usuarios">
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -27,14 +31,17 @@
             <TextBox Width="200" Height="25" Margin="0,0,10,0" 
                      VerticalContentAlignment="Center"
                      Text="Buscar Usuario..." />
-            <Button Content="Buscar" Width="80" Height="25"/>
-            <Button Content="Nuevo Usuario" Width="120" Height="25" Margin="20,0,0,0" Click="BtnNuevoUsuario_Click"/>
+            <Button Content="Buscar" Width="80" Height="25" Command="{Binding RefreshUsuariosCommand}"/>
+            <Button Content="Nuevo Usuario" Width="120" Height="25" Margin="20,0,0,0" 
+                    Command="{Binding NavigateToNewUsuarioCommand}"/>
         </StackPanel>
 
-        <!-- DataGrid con los propulsores -->
-        <DataGrid x:Name="UsuariosDataGrid" Grid.Row="2" 
+        <!-- DataGrid con los usuarios -->
+        <DataGrid Grid.Row="2" 
                   AutoGenerateColumns="False" 
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  ItemsSource="{Binding Usuarios}"
+                  SelectedItem="{Binding SelectedUsuario}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="80"/>
                 <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="130"/>
@@ -42,14 +49,16 @@
                 <DataGridTextColumn Header="Nº de Teléfono" Binding="{Binding NumeroTelefonico}" Width="100"/>
                 <DataGridTextColumn Header="Rol" Binding="{Binding RolTipo}" Width="130"/>
 
-
-                <!-- Más columnas pueden ser añadidas según sea necesario -->
                 <DataGridTemplateColumn Header="Acciones" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="Editar" Width="60" Margin="0,0,5,0"/>
-                                <Button Content="Eliminar" Width="60"/>
+                                <Button Content="Editar" Width="60" Margin="0,0,5,0"
+                                        Command="{Binding DataContext.EditUsuarioCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"/>
+                                <Button Content="Eliminar" Width="60"
+                                        Command="{Binding DataContext.DeleteUsuarioCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

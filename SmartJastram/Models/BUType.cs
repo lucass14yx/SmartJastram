@@ -160,14 +160,20 @@ namespace SmartJastram.Models
         /// Tipo de acoplamiento del propulsor
         /// </summary>
         public string Coupling_type { get; set; }
-
         /// <summary>
-        /// Constructor sin parámetros
+        /// Imagen en base64 del propulsor
         /// </summary>
+        public string IMG { get; set; }
+
         
 
 
         private BUTypeManage butm = new BUTypeManage();
+
+
+        /// <summary>
+        /// Constructor sin parámetros
+        /// </summary>
 
         public BUType()
         {
@@ -179,7 +185,7 @@ namespace SmartJastram.Models
         public BUType(int id, string designacion, decimal i_val, int n1_val, int n2_val, int b, int c, int d, int e, int f,
                     int a_val, int d_m6_val, int a_standard, int a_min, int s_val, int l, int l1_val, int l2_val,
                     int gear, int coupling, int propeller, int tunnel, int per_meter, int motor_found, int oil_volume_gear,
-                    int dnv_k1_dp, decimal pullup_plate_wheel, decimal pullup_propeller, string coupling_type)
+                    int dnv_k1_dp, decimal pullup_plate_wheel, decimal pullup_propeller, string coupling_type, string img)
         {
             ID = id;
             Designacion = designacion;
@@ -210,11 +216,12 @@ namespace SmartJastram.Models
             Pullup_Plate_Wheel = pullup_plate_wheel;
             Pullup_Propeller = pullup_propeller;
             Coupling_type = coupling_type;
+            IMG = img;
         }
         public BUType(string designacion, decimal i_val, int n1_val, int n2_val, int b, int c, int d, int e, int f,
                    int a_val, int d_m6_val, int a_standard, int a_min, int s_val, int l, int l1_val, int l2_val,
                    int gear, int coupling, int propeller, int tunnel, int per_meter, int motor_found, int oil_volume_gear,
-                   int dnv_k1_dp, decimal pullup_plate_wheel, decimal pullup_propeller, string coupling_type)
+                   int dnv_k1_dp, decimal pullup_plate_wheel, decimal pullup_propeller, string coupling_type, string img)
         {
             Designacion = designacion;
             i = i_val;
@@ -244,20 +251,8 @@ namespace SmartJastram.Models
             Pullup_Plate_Wheel = pullup_plate_wheel;
             Pullup_Propeller = pullup_propeller;
             Coupling_type = coupling_type;
+            IMG = img;
         }
-        /// <summary>
-        /// Constructor de prueba
-        /// 
-        public BUType(string designacion, decimal i_val, int n1_val, int n2_val)
-        {
-            Designacion = designacion;
-            i = i_val;
-            n1 = n1_val;
-            n2 = n2_val;
-        }
-        public List<BUType> GetPropulsores()
-        {
-            return butm.SelectAll();
-        }
+        
     }
 }

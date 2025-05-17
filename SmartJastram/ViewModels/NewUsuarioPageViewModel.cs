@@ -60,6 +60,26 @@ namespace SmartJastram.ViewModels
                 OnPropertyChanged();
             }
         }
+        private string _repetirPassword;
+        public string RepetirPassword
+        {
+            get => _repetirPassword;
+            set
+            {
+                _repetirPassword = value;
+                OnPropertyChanged();
+            }
+        }
+        private int _numeroTelefonico;
+        public int NumeroTelefonico
+        {
+            get => _numeroTelefonico;
+            set
+            {
+                _numeroTelefonico = value;
+                OnPropertyChanged();
+            }
+        }
 
         public class RolItem
         {
@@ -159,7 +179,7 @@ namespace SmartJastram.ViewModels
             Nombre = _usuarioToEdit.Nombre;
             Apellidos = _usuarioToEdit.Apellidos;
             Email = _usuarioToEdit.Email;
-            // No cargamos la contraseña por seguridad
+            NumeroTelefonico = _usuarioToEdit.NumeroTelefonico;
             RolID = _usuarioToEdit.RolID;
         }
 
@@ -167,8 +187,8 @@ namespace SmartJastram.ViewModels
         {
             // Validar que los campos obligatorios no estén vacíos
             return !string.IsNullOrWhiteSpace(Nombre) &&
-                   
-                   (!string.IsNullOrWhiteSpace(Password) || _isEditMode);
+                   !string.IsNullOrWhiteSpace(Email) &&
+                   ((!string.IsNullOrWhiteSpace(Password) && !string.IsNullOrWhiteSpace(RepetirPassword)) || _isEditMode);
         }
 
         private void ExecuteSave(object obj)
@@ -254,6 +274,14 @@ namespace SmartJastram.ViewModels
             {
                 return false;
             }
+            if (Password != RepetirPassword)
+            {
+                MessageBox.Show("Las contraseñas no coinciden.",
+                              "Error de validación",
+                              MessageBoxButton.OK,
+                              MessageBoxImage.Warning);
+                return false;
+            }
 
             // Validar formato de email si se ha proporcionado
             if (!string.IsNullOrWhiteSpace(Email) && !IsValidEmail(Email))
@@ -289,17 +317,14 @@ namespace SmartJastram.ViewModels
             {
                 passwordToUse = _usuarioToEdit.Contraseña;
             }
-            else if (!string.IsNullOrWhiteSpace(Password))
-            {
-                // Encriptar la nueva contraseña
-                passwordToUse = SmartJastram.Helpers.SecurityHelper.CifraSHA(Password);
-            }
+            
 
             return new Usuario
             {
                 Nombre = Nombre,
                 Apellidos = Apellidos,
                 Email = Email,
+                NumeroTelefonico = NumeroTelefonico,
                 Contraseña = passwordToUse,
                 RolID = RolID,
             };

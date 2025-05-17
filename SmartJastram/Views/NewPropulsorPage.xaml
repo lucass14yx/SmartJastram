@@ -143,6 +143,14 @@
                             <TextBox Height="25" Margin="0,0,0,10" Text="{Binding CouplingType, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </GroupBox>
+                    <GroupBox Header="Imagen del Propulsor" Padding="10" Margin="0,10,0,0">
+                        <StackPanel>
+                            <Image Height="200" Margin="0,10,0,10" Stretch="Uniform" 
+                                   Source="{Binding ImagenPropulsor}"/>
+                            <Button Content="Seleccionar Imagen" Height="30" 
+                                    Command="{Binding ChooseImageCommand}"/>
+                        </StackPanel>
+                    </GroupBox>
                 </StackPanel>
             </Grid>
 

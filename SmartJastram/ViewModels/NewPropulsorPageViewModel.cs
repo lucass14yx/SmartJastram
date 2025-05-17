@@ -4,8 +4,11 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Win32;
+using System.Windows.Media.Imaging;
 using SmartJastram.Models;
 using SmartJastram.Services.Managers;
+using System.IO;
 
 namespace SmartJastram.ViewModels
 {
@@ -324,6 +327,26 @@ namespace SmartJastram.ViewModels
                 OnPropertyChanged();
             }
         }
+        private string _img;
+        public string Img
+        {
+            get => _img;
+            set
+            {
+                _img = value;
+                OnPropertyChanged();
+            }
+        }
+        private BitmapImage _imagenPropulsor;
+        public BitmapImage ImagenPropulsor
+        {
+            get => _imagenPropulsor;
+            set
+            {
+                _imagenPropulsor = value;
+                OnPropertyChanged(nameof(ImagenPropulsor));
+            }
+        }
 
         private string _pageTitle;
         public string PageTitle
@@ -340,6 +363,7 @@ namespace SmartJastram.ViewModels
         #region Comandos
         public ICommand SaveCommand { get; private set; }
         public ICommand CancelCommand { get; private set; }
+        public ICommand ChooseImageCommand { get; private set; }
         #endregion
 
         #region Eventos
@@ -357,6 +381,7 @@ namespace SmartJastram.ViewModels
             // Inicializar comandos
             SaveCommand = new RelayCommand(ExecuteSave, CanExecuteSave);
             CancelCommand = new RelayCommand(ExecuteCancel);
+            ChooseImageCommand = new RelayCommand(ExecuteChooseImage);
 
             // Configurar título de la página
             PageTitle = _isEditMode ? "Editar Propulsor" : "Nuevo Propulsor";
@@ -400,6 +425,7 @@ namespace SmartJastram.ViewModels
             PullupPlateWheel = _propulsorToEdit.Pullup_Plate_Wheel;
             PullupPropeller = _propulsorToEdit.Pullup_Propeller;
             CouplingType = _propulsorToEdit.Coupling_type;
+            Img = _propulsorToEdit.IMG;
         }
 
         private bool CanExecuteSave(object obj)
@@ -477,6 +503,37 @@ namespace SmartJastram.ViewModels
                 NavigateBackRequested?.Invoke(_currentUser);
             }
         }
+        private void ExecuteChooseImage(object obj)
+        {
+            
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    Title = "Seleccionar Imagen",
+                    Filter = "Archivos de Imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+                };
+
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    try
+                    {
+                        // Cargar la imagen seleccionada y mostrarla en el control Image
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.UriSource = new Uri(openFileDialog.FileName);
+                        bitmap.EndInit();
+
+                        byte[] imageBytes = File.ReadAllBytes(openFileDialog.FileName);
+                        Img = Convert.ToBase64String(imageBytes);
+
+                        ImagenPropulsor = bitmap;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al cargar la imagen: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            
+        }
 
         private bool ValidarCampos()
         {
@@ -522,7 +579,8 @@ namespace SmartJastram.ViewModels
                 dnv_k1_dp: DNVK1dp,
                 pullup_plate_wheel: PullupPlateWheel,
                 pullup_propeller: PullupPropeller,
-                coupling_type: CouplingType
+                coupling_type: CouplingType,
+                img: Img
             );
         }
 

@@ -7,6 +7,7 @@
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
       xmlns:viewmodels="clr-namespace:SmartJastram.ViewModels"
+      xmlns:helpers="clr-namespace:SmartJastram.Helpers"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PropulsoresPage">
@@ -30,10 +31,8 @@
 
         <!-- Controles de búsqueda/filtrado -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
-            <TextBox Width="200" Height="25" Margin="0,0,10,0" 
-                     VerticalContentAlignment="Center"
-                     Text="Buscar propulsor..." />
-            <Button Content="Buscar" Width="80" Height="25" Command="{Binding RefreshPropulsoresCommand}"/>
+            
+            <Button Content="Actualizar" Width="80" Height="25" Command="{Binding RefreshPropulsoresCommand}"/>
             <Button Content="Nuevo Propulsor" Width="120" Height="25" Margin="20,0,0,0" 
                     Command="{Binding NavigateToNewPropulsorCommand}"
                     Visibility="{Binding CanManagePropulsores, Converter={StaticResource BooleanToVisibilityConverter}}"/>
@@ -53,6 +52,16 @@
               SelectedItem="{Binding SelectedPropulsor}">
 
                 <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Imagen" MinWidth="80" CanUserResize="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Abrir" Width="60" Command="{Binding DataContext.VerImagenCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                    CommandParameter="{Binding}"/>
+
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn Header="Designación" Binding="{Binding Designacion}" MinWidth="80" CanUserResize="False"/>
                     <DataGridTextColumn Header="i" Binding="{Binding i, StringFormat={}{0:F3}}" MinWidth="50" CanUserResize="False"/>
                     <DataGridTextColumn Header="n1" Binding="{Binding n1}" MinWidth="50" CanUserResize="False"/>
@@ -97,6 +106,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>

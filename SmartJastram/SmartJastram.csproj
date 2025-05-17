@@ -123,6 +123,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\Base64Helper.cs" />
+    <Compile Include="Helpers\PasswordBoxHelper.cs" />
     <Compile Include="Helpers\SecurityHelper.cs" />
     <Compile Include="Services\DBBroker.cs" />
     <Compile Include="Services\Managers\BUTypeManage.cs" />
@@ -149,6 +151,9 @@
     </Compile>
     <Compile Include="Views\PropulsoresPage.xaml.cs">
       <DependentUpon>PropulsoresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowForImg.xaml.cs">
+      <DependentUpon>WindowForImg.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AdminUsuariosPage.xaml">
       <SubType>Designer</SubType>
@@ -179,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PropulsoresPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowForImg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -54,7 +54,8 @@ namespace SmartJastram.Services.Managers
                     Convert.ToInt32(c[25]),            // DNV_k1_dp
                     Convert.ToDecimal(c[26]),           // Pullup_Plate_Wheel
                     Convert.ToDecimal(c[27]),           // Pullup_Propeller
-                    c[28].ToString()                   // Coupling_type
+                    c[28].ToString(),                   // Coupling_type
+                    c[29].ToString()                   // IMG base64.strin
                 );
                 buTypes.Add(buType);
             }
@@ -85,10 +86,10 @@ namespace SmartJastram.Services.Managers
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = "INSERT INTO smartjastramapp.butypes (Designacion, i, n1, n2, B, C, D, E, F, a, d_m6, A_Standard, " +
                            "A_min, s, L, l1, l2, Gear, Coupling, Propeller, Tunnel, per_Meter, Motor_Found, Oil_Volume_Gear, " +
-                           "DNV_k1_dp, Pullup_Plate_Wheel, Pullup_Propeller, Coupling_type) VALUES (" +
+                           "DNV_k1_dp, Pullup_Plate_Wheel, Pullup_Propeller, Coupling_type, IMG) VALUES (" +
                            "@Designacion, @i, @n1, @n2, @B, @C, @D, @E, @F, @a, @d_m6, @A_Standard, " +
                            "@A_min, @s, @L, @l1, @l2, @Gear, @Coupling, @Propeller, @Tunnel, @per_Meter, @Motor_Found, " +
-                           "@Oil_Volume_Gear, @DNV_k1_dp, @Pullup_Plate_Wheel, @Pullup_Propeller, @Coupling_type);";
+                           "@Oil_Volume_Gear, @DNV_k1_dp, @Pullup_Plate_Wheel, @Pullup_Propeller, @Coupling_type, @IMG);";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
@@ -119,7 +120,9 @@ namespace SmartJastram.Services.Managers
                 {"@DNV_k1_dp", buType.DNV_k1_dp},
                 {"@Pullup_Plate_Wheel", buType.Pullup_Plate_Wheel},
                 {"@Pullup_Propeller", buType.Pullup_Propeller},
-                {"@Coupling_type", buType.Coupling_type}
+                {"@Coupling_type", buType.Coupling_type},
+                {"@IMG", buType.IMG}
+
             };
 
             dbBroker.modificar(query, parameters);
@@ -161,7 +164,8 @@ namespace SmartJastram.Services.Managers
                           "DNV_k1_dp = @DNV_k1_dp, " +
                           "Pullup_Plate_Wheel = @Pullup_Plate_Wheel, " +
                           "Pullup_Propeller = @Pullup_Propeller, " +
-                          "Coupling_type = @Coupling_type " +
+                          "Coupling_type = @Coupling_type, " +
+                          "IMG = @IMG " +
                           "WHERE ID = @ID;";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
@@ -194,6 +198,7 @@ namespace SmartJastram.Services.Managers
                 {"@Pullup_Plate_Wheel", buType.Pullup_Plate_Wheel},
                 {"@Pullup_Propeller", buType.Pullup_Propeller},
                 {"@Coupling_type", buType.Coupling_type},
+                {"@IMG", buType.IMG},
                 {"@ID", buType.ID}
             };
 
@@ -261,7 +266,8 @@ namespace SmartJastram.Services.Managers
                     Convert.ToInt32(c[25]),            // DNV_k1_dp
                     Convert.ToDecimal(c[26]),           // Pullup_Plate_Wheel
                     Convert.ToDecimal(c[27]),           // Pullup_Propeller
-                    c[28].ToString()                   // Coupling_type
+                    c[28].ToString(),                   // Coupling_type
+                    c[29].ToString()                   // IMG base64.string
                 );
             }
 
@@ -315,7 +321,8 @@ namespace SmartJastram.Services.Managers
                     Convert.ToInt32(c[25]),            // DNV_k1_dp
                     Convert.ToDecimal(c[26]),           // Pullup_Plate_Wheel
                     Convert.ToDecimal(c[27]),           // Pullup_Propeller
-                    c[28].ToString()                   // Coupling_type
+                    c[28].ToString(),                   // Coupling_type
+                    c[29].ToString()                  // IMG base64.string
                 );
                 results.Add(buType);
             }

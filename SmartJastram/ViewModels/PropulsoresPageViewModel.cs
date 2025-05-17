@@ -1,5 +1,7 @@
-﻿using SmartJastram.Models;
+﻿using SmartJastram.Helpers;
+using SmartJastram.Models;
 using SmartJastram.Services.Managers;
+using SmartJastram.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Windows.Input;
 
 namespace SmartJastram.ViewModels
 {
-    public class PropulsoresPageViewModel : BaseViewModel 
+    public class PropulsoresPageViewModel : BaseViewModel
     {
         private Usuario _currentUser;
         private ObservableCollection<BUType> _propulsores;
@@ -51,6 +53,7 @@ namespace SmartJastram.ViewModels
         public ICommand EditPropulsorCommand { get; }
         public ICommand DeletePropulsorCommand { get; }
         public ICommand RefreshPropulsoresCommand { get; }
+        public ICommand VerImagenCommand { get; }
 
         public event Action NavigateToNewPropulsorRequested;
         public event Action<BUType> EditPropulsorRequested;
@@ -65,6 +68,7 @@ namespace SmartJastram.ViewModels
             EditPropulsorCommand = new RelayCommand(ExecuteEditPropulsor, CanExecuteEditOrDeletePropulsor);
             DeletePropulsorCommand = new RelayCommand(ExecuteDeletePropulsor, CanExecuteEditOrDeletePropulsor);
             RefreshPropulsoresCommand = new RelayCommand(LoadPropulsores);
+            VerImagenCommand = new RelayCommand(ExecuteVerImagen);
 
             LoadPropulsores(null); // Load initial data
             OnPropertyChanged(nameof(CanManagePropulsores)); // Notify that CanManagePropulsores might have changed
@@ -74,7 +78,7 @@ namespace SmartJastram.ViewModels
         {
             try
             {
-                
+
                 var propulsoresList = _buTypeManager.SelectAll(); // Or similar method in BUTypeManage
 
                 Propulsores.Clear();
@@ -142,6 +146,15 @@ namespace SmartJastram.ViewModels
                         MessageBox.Show($"Error al eliminar el propulsor: {ex.Message}", "Error de Eliminación", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
+            }
+        }
+        private void ExecuteVerImagen(object parameter)
+        {
+            if (parameter is BUType propulsor)
+            {
+                WindowForImg imgWin = new WindowForImg(Base64Helper.FromBase64ToImage(propulsor.IMG),propulsor.Designacion);
+                imgWin.Show();
+                
             }
         }
     }

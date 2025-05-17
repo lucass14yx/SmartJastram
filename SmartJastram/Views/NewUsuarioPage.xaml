@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SmartJastram.Views"
       xmlns:viewmodels="clr-namespace:SmartJastram.ViewModels"
+      xmlns:helpers="clr-namespace:SmartJastram.Helpers"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Nuevo Usuario">
@@ -44,17 +45,25 @@
                                      Height="25" Margin="0,0,0,10"/>
 
                             <Label Content="Nº de Teléfono:"/>
-                            <TextBox x:Name="txtTelefono" Height="25" Margin="0,0,0,10"/>
+                            <TextBox x:Name="txtTelefono" Text="{Binding NumeroTelefonico, UpdateSourceTrigger=PropertyChanged}"
+                                     Height="25" Margin="0,0,0,10"/>
 
                             <Label Content="Email:"/>
                             <TextBox x:Name="txtEmail" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" 
                                      Height="25" Margin="0,0,0,10"/>
 
                             <Label Content="Contraseña:"/>
-                            <PasswordBox x:Name="txtPassword" Height="25" Margin="0,0,0,10"/>
+                            <PasswordBox x:Name="txtPassword" 
+                                 helpers:PasswordBoxHelper.Attach="True"
+                                 helpers:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                 Height="25" 
+                                 Margin="0,0,0,10"/>
 
                             <Label Content="Repetir Contraseña:"/>
-                            <PasswordBox x:Name="txtPasswordRepeat" Height="25" Margin="0,0,0,10"/>
+                            <PasswordBox x:Name="txtPasswordRepeat"
+                                         helpers:PasswordBoxHelper.Attach="True"
+                                         helpers:PasswordBoxHelper.Password="{Binding RepetirPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Height="25" Margin="0,0,0,10"/>
 
                             <Label Content="Rol:"/>
                             <ComboBox x:Name="cmbRol" 

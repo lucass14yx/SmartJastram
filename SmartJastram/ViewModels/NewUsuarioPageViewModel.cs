@@ -212,7 +212,14 @@ namespace SmartJastram.ViewModels
                 {
                     // Actualizar el usuario existente
                     usuario.ID = _usuarioToEdit.ID;
-                    _manager.Modify(usuario);
+                    if (usuario.Contraseña == Password)
+                    {
+                        _manager.Modify(usuario);
+                    }
+                    else
+                    {
+                        _manager.Modify(usuario, false);
+                    }
                     MessageBox.Show("Usuario actualizado correctamente.",
                                   "Operación exitosa",
                                   MessageBoxButton.OK,

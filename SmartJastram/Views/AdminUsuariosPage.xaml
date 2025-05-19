@@ -28,24 +28,26 @@
 
         <!-- Controles de búsqueda/filtrado -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
-            <TextBox Width="200" Height="25" Margin="0,0,10,0" 
-                     VerticalContentAlignment="Center"
-                     Text="Buscar Usuario..." />
-            <Button Content="Buscar" Width="80" Height="25" Command="{Binding RefreshUsuariosCommand}"/>
+            
+            <Button Content="Actualizar" Width="80" Height="25" Command="{Binding RefreshUsuariosCommand}"/>
             <Button Content="Nuevo Usuario" Width="120" Height="25" Margin="20,0,0,0" 
                     Command="{Binding NavigateToNewUsuarioCommand}"/>
         </StackPanel>
 
         <!-- DataGrid con los usuarios -->
         <DataGrid Grid.Row="2" 
-                  AutoGenerateColumns="False" 
-                  IsReadOnly="True"
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              HeadersVisibility="Column"
+              ScrollViewer.CanContentScroll="True"
+              HorizontalScrollBarVisibility="Visible"
+              VerticalScrollBarVisibility="Disabled"
                   ItemsSource="{Binding Usuarios}"
                   SelectedItem="{Binding SelectedUsuario}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="80"/>
-                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="130"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="200"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="250"/>
                 <DataGridTextColumn Header="Nº de Teléfono" Binding="{Binding NumeroTelefonico}" Width="100"/>
                 <DataGridTextColumn Header="Rol" Binding="{Binding RolTipo}" Width="130"/>
 

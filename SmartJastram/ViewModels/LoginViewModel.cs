@@ -45,7 +45,7 @@ namespace SmartJastram.ViewModels
         {
             try
             {
-                string passwordCifrada = SecurityHelper.CifraSHA(Password);
+                string passwordCifrada = SecurityHelper.EncodeSHA(Password);
                 Usuario usuario = _usuarioManager.Autenticar(Email, passwordCifrada);
 
                 if (usuario != null)

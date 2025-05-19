@@ -9,7 +9,7 @@ namespace SmartJastram.Helpers
 {
     public static class SecurityHelper
     {
-        public static string CifraSHA(string cadena)
+        public static string EncodeSHA(string cadena)
         {
             using (SHA512 sha512 = SHA512.Create())
             {
@@ -27,6 +27,14 @@ namespace SmartJastram.Helpers
 
                 return sb.ToString();
             }
+        }
+        public static bool VerifySHA(string input, string hashToCompare)
+        {
+            // Generate the hash of the input
+            string inputHash = EncodeSHA(input);
+
+            // Compare the generated hash with the provided hash
+            return string.Equals(inputHash, hashToCompare, StringComparison.OrdinalIgnoreCase);
         }
     }
 }

@@ -68,7 +68,7 @@ namespace SmartJastram.Services.Managers
                             (@Nombre, @Apellidos, @NumeroTelefonico, @Email, @Contraseña, @RolID);";
 
             // Si la contraseña no está cifrada, aplicamos SHA512
-            string contraseña = SecurityHelper.CifraSHA(usuario.Contraseña);
+            string contraseña = SecurityHelper.EncodeSHA(usuario.Contraseña);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
@@ -88,7 +88,7 @@ namespace SmartJastram.Services.Managers
         /// </summary>
         /// <param name="usuario">El objeto Usuario con los datos actualizados</param>
         /// <param name="contraseñaSinCifrar">Si es true, cifrará la contraseña antes de actualizar</param>
-        public void Modify(Usuario usuario)
+        public void Modify(Usuario usuario, Boolean hasNewPassword = true)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = @"UPDATE smartjastramapp.usuarios SET 
@@ -101,7 +101,11 @@ namespace SmartJastram.Services.Managers
                             WHERE ID = @ID;";
 
             // Si la contraseña no está cifrada, aplicamos SHA512
-            string contraseña = SecurityHelper.CifraSHA(usuario.Contraseña);
+            string contraseña = usuario.Contraseña;
+            if (hasNewPassword)
+            {
+               contraseña = SecurityHelper.EncodeSHA(usuario.Contraseña);
+            }
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {

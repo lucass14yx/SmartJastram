@@ -52,7 +52,7 @@
               SelectedItem="{Binding SelectedPropulsor}">
 
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Imagen" MinWidth="80" CanUserResize="False">
+                    <DataGridTemplateColumn Header="Imagen" MinWidth="60" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Abrir" Width="60" Command="{Binding DataContext.VerImagenCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 

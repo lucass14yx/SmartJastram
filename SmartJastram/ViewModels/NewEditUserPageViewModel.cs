@@ -10,11 +10,11 @@ using System.Collections.Generic;
 
 namespace SmartJastram.ViewModels
 {
-    public class NewUsuarioPageViewModel : BaseViewModel
+    public class NewEditUserPageViewModel : BaseViewModel
     {
-        private readonly UsuarioManage _manager;
-        private readonly Usuario _currentUser;
-        private Usuario _usuarioToEdit;
+        private readonly UserManage _manager;
+        private readonly User _currentUser;
+        private User _usuarioToEdit;
         private bool _isEditMode;
 
         #region Propiedades de datos
@@ -128,14 +128,14 @@ namespace SmartJastram.ViewModels
         #endregion
 
         #region Eventos
-        public event Action<Usuario> NavigateBackRequested;
-        public event Action<Usuario, Usuario> UsuarioSaved;
+        public event Action<User> NavigateBackRequested;
+        public event Action<User, User> UsuarioSaved;
         #endregion
 
-        public NewUsuarioPageViewModel(Usuario currentUser, Usuario usuarioToEdit = null)
+        public NewEditUserPageViewModel(User currentUser, User usuarioToEdit = null)
         {
             _currentUser = currentUser;
-            _manager = new UsuarioManage();
+            _manager = new UserManage();
             _usuarioToEdit = usuarioToEdit;
             _isEditMode = usuarioToEdit != null;
 
@@ -206,7 +206,7 @@ namespace SmartJastram.ViewModels
                 }
 
                 // Crear el objeto Usuario con los datos del formulario
-                Usuario usuario = CrearUsuarioDesdeFormulario();
+                User usuario = CrearUsuarioDesdeFormulario();
 
                 if (_isEditMode)
                 {
@@ -316,7 +316,7 @@ namespace SmartJastram.ViewModels
             }
         }
 
-        private Usuario CrearUsuarioDesdeFormulario()
+        private User CrearUsuarioDesdeFormulario()
         {
             // Si estamos en modo edición y no se ha cambiado la contraseña, mantener la existente
             string passwordToUse = Password;
@@ -326,7 +326,7 @@ namespace SmartJastram.ViewModels
             }
             
 
-            return new Usuario
+            return new User
             {
                 Nombre = Nombre,
                 Apellidos = Apellidos,
@@ -337,6 +337,6 @@ namespace SmartJastram.ViewModels
             };
         }
 
-        public Usuario CurrentUser => _currentUser;
+        public User CurrentUser => _currentUser;
     }
 }

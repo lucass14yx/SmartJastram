@@ -10,7 +10,7 @@ namespace SmartJastram.ViewModels
 {
     internal class LoginViewModel : BaseViewModel
     {
-        private readonly UsuarioManage _usuarioManager;
+        private readonly UserManage _usuarioManager;
 
         private string _email;
         private string _password;
@@ -31,7 +31,7 @@ namespace SmartJastram.ViewModels
 
         public LoginViewModel()
         {
-            _usuarioManager = new UsuarioManage();
+            _usuarioManager = new UserManage();
             LoginCommand = new RelayCommand(ExecuteLogin, CanExecuteLogin);
         }
 
@@ -46,7 +46,7 @@ namespace SmartJastram.ViewModels
             try
             {
                 string passwordCifrada = SecurityHelper.EncodeSHA(Password);
-                Usuario usuario = _usuarioManager.Autenticar(Email, passwordCifrada);
+                User usuario = _usuarioManager.Autenticar(Email, passwordCifrada);
 
                 if (usuario != null)
                 {

@@ -7,16 +7,16 @@ namespace SmartJastram.Views
     /// <summary>
     /// Lógica de interacción para NewPropulsorPage.xaml
     /// </summary>
-    public partial class NewPropulsorPage : Page
+    public partial class NewEditThrusterPage : Page
     {
-        private NewPropulsorPageViewModel _viewModel;
+        private NewEditThrusterPageViewModel _viewModel;
 
-        public NewPropulsorPage(Usuario currentUser)
+        public NewEditThrusterPage(User currentUser)
         {
             InitializeComponent();
 
             // Inicializar el ViewModel
-            _viewModel = new NewPropulsorPageViewModel(currentUser);
+            _viewModel = new NewEditThrusterPageViewModel(currentUser);
             DataContext = _viewModel;
 
             // Suscribirse a eventos del ViewModel
@@ -24,12 +24,12 @@ namespace SmartJastram.Views
             _viewModel.PropulsorSaved += OnPropulsorSaved;
         }
 
-        public NewPropulsorPage(Usuario currentUser, BUType propulsorToEdit)
+        public NewEditThrusterPage(User currentUser, BUType propulsorToEdit)
         {
             InitializeComponent();
 
             // Inicializar el ViewModel en modo edición
-            _viewModel = new NewPropulsorPageViewModel(currentUser, propulsorToEdit);
+            _viewModel = new NewEditThrusterPageViewModel(currentUser, propulsorToEdit);
             DataContext = _viewModel;
 
             // Suscribirse a eventos del ViewModel
@@ -37,16 +37,16 @@ namespace SmartJastram.Views
             _viewModel.PropulsorSaved += OnPropulsorSaved;
         }
 
-        private void OnNavigateBack(Usuario currentUser)
+        private void OnNavigateBack(User currentUser)
         {
             // Navegar de vuelta a la página de propulsores
-            NavigationService.Navigate(new PropulsoresPage(currentUser));
+            NavigationService.Navigate(new ThrustersPage(currentUser));
         }
 
-        private void OnPropulsorSaved(Usuario currentUser, BUType propulsor)
+        private void OnPropulsorSaved(User currentUser, BUType propulsor)
         {
             // Navegar de vuelta a la página de propulsores después de guardar
-            NavigationService.Navigate(new PropulsoresPage(currentUser));
+            NavigationService.Navigate(new ThrustersPage(currentUser));
         }
 
         private void Page_Unloaded(object sender, System.Windows.RoutedEventArgs e)

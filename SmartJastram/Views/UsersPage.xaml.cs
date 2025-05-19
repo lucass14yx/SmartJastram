@@ -7,14 +7,14 @@ namespace SmartJastram.Views
     /// <summary>
     /// Lógica de interacción para AdminUsuariosPage.xaml
     /// </summary>
-    public partial class AdminUsuariosPage : Page
+    public partial class UsersPage : Page
     {
-        private readonly AdminUsuariosPageViewModel _viewModel;
+        private readonly UsersPageViewModel _viewModel;
 
-        public AdminUsuariosPage(Usuario currentUsuario)
+        public UsersPage(User currentUsuario)
         {
             InitializeComponent();
-            _viewModel = new AdminUsuariosPageViewModel(currentUsuario);
+            _viewModel = new UsersPageViewModel(currentUsuario);
             DataContext = _viewModel;
 
             // Suscribirse a eventos de navegación
@@ -24,12 +24,12 @@ namespace SmartJastram.Views
 
         private void OnNavigateToNewUsuario()
         {
-            NavigationService?.Navigate(new NewUsuarioPage(_viewModel.CurrentUser));
+            NavigationService?.Navigate(new NewEditUserPage(_viewModel.CurrentUser));
         }
 
-        private void OnEditUsuario(Usuario usuario)
+        private void OnEditUsuario(User usuario)
         {
-            NavigationService?.Navigate(new NewUsuarioPage(_viewModel.CurrentUser, usuario));
+            NavigationService?.Navigate(new NewEditUserPage(_viewModel.CurrentUser, usuario));
         }
     }
 }

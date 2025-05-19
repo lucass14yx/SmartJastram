@@ -12,7 +12,7 @@ namespace SmartJastram.Models
     /// <summary>
     /// Clase que representa un usuario del sistema
     /// </summary>
-    public class Usuario
+    public class User
     {
         /// <summary>
         /// Identificador único del usuario
@@ -54,21 +54,21 @@ namespace SmartJastram.Models
         public string NombreCompleto { get; set; }
 
 
-        public UsuarioManage um = new UsuarioManage();
+        public UserManage um = new UserManage();
 
 
 
         /// <summary>
         /// Constructor sin parámetros
         /// </summary>
-        public Usuario()
+        public User()
         {
         }
 
         /// <summary>
         /// Constructor con parámetros básicos
         /// </summary>
-        public Usuario(string nombre, string apellidos, int numeroTelefonico, string email, string contraseña, int rolID)
+        public User(string nombre, string apellidos, int numeroTelefonico, string email, string contraseña, int rolID)
         {
             Nombre = nombre;
             Apellidos = apellidos;
@@ -83,7 +83,7 @@ namespace SmartJastram.Models
         /// <summary>
         /// Constructor con todos los parámetros incluyendo ID
         /// </summary>
-        public Usuario(int id, string nombre, string apellidos, int numeroTelefonico, string email, string contraseña, int rolID)
+        public User(int id, string nombre, string apellidos, int numeroTelefonico, string email, string contraseña, int rolID)
         {
             ID = id;
             Nombre = nombre;
@@ -118,7 +118,7 @@ namespace SmartJastram.Models
                 RolTipo = "Superadministrador";
             }
         }
-        public ObservableCollection<Usuario> GetUsuarios()
+        public ObservableCollection<User> GetUsuarios()
         {
             return um.SelectAll();
         }

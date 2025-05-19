@@ -8,10 +8,10 @@ namespace SmartJastram.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private Usuario _currentUser;
+        private User _currentUser;
         private Page _currentPage;
 
-        public Usuario CurrentUser
+        public User CurrentUser
         {
             get => _currentUser;
             set => SetProperty(ref _currentUser, value);
@@ -26,7 +26,7 @@ namespace SmartJastram.ViewModels
         public ICommand NavigateToPropulsoresCommand { get; }
         public ICommand NavigateToUsersCommand { get; }
 
-        public MainViewModel(Usuario currentUser)
+        public MainViewModel(User currentUser)
         {
             CurrentUser = currentUser;
             NavigateToPropulsoresCommand = new RelayCommand(NavigateToPropulsores);
@@ -38,14 +38,14 @@ namespace SmartJastram.ViewModels
 
         private void NavigateToPropulsores(object parameter)
         {
-            CurrentPage = new PropulsoresPage(CurrentUser);
+            CurrentPage = new ThrustersPage(CurrentUser);
         }
 
         private void NavigateToUsers(object parameter)
         {
             if (CurrentUser.RolID == 3) // Solo Superadministrador
             {
-                CurrentPage = new AdminUsuariosPage(CurrentUser);
+                CurrentPage = new UsersPage(CurrentUser);
             }
             else
             {

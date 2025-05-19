@@ -11,14 +11,14 @@ using System.Windows.Input;
 
 namespace SmartJastram.ViewModels
 {
-    public class PropulsoresPageViewModel : BaseViewModel
+    public class ThrustersPageViewModel : BaseViewModel
     {
-        private Usuario _currentUser;
+        private User _currentUser;
         private ObservableCollection<BUType> _propulsores;
         private BUType _selectedPropulsor;
         private readonly BUTypeManage _buTypeManager;
 
-        public Usuario CurrentUser
+        public User CurrentUser
         {
             get => _currentUser;
             set => SetProperty(ref _currentUser, value);
@@ -58,7 +58,7 @@ namespace SmartJastram.ViewModels
         public event Action NavigateToNewPropulsorRequested;
         public event Action<BUType> EditPropulsorRequested;
 
-        public PropulsoresPageViewModel(Usuario currentUser)
+        public ThrustersPageViewModel(User currentUser)
         {
             CurrentUser = currentUser;
             _buTypeManager = new BUTypeManage();

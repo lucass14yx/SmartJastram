@@ -7,16 +7,16 @@ namespace SmartJastram.Views
     /// <summary>
     /// Lógica de interacción para NewUsuarioPage.xaml
     /// </summary>
-    public partial class NewUsuarioPage : Page
+    public partial class NewEditUserPage : Page
     {
-        private NewUsuarioPageViewModel _viewModel;
+        private NewEditUserPageViewModel _viewModel;
 
-        public NewUsuarioPage(Usuario currentUser)
+        public NewEditUserPage(User currentUser)
         {
             InitializeComponent();
 
             // Inicializar el ViewModel
-            _viewModel = new NewUsuarioPageViewModel(currentUser);
+            _viewModel = new NewEditUserPageViewModel(currentUser);
             DataContext = _viewModel;
 
             // Suscribirse a eventos del ViewModel
@@ -24,12 +24,12 @@ namespace SmartJastram.Views
             _viewModel.UsuarioSaved += OnUsuarioSaved;
         }
 
-        public NewUsuarioPage(Usuario currentUser, Usuario usuarioToEdit)
+        public NewEditUserPage(User currentUser, User usuarioToEdit)
         {
             InitializeComponent();
 
             // Inicializar el ViewModel en modo edición
-            _viewModel = new NewUsuarioPageViewModel(currentUser, usuarioToEdit);
+            _viewModel = new NewEditUserPageViewModel(currentUser, usuarioToEdit);
             DataContext = _viewModel;
 
             // Suscribirse a eventos del ViewModel
@@ -37,16 +37,16 @@ namespace SmartJastram.Views
             _viewModel.UsuarioSaved += OnUsuarioSaved;
         }
 
-        private void OnNavigateBack(Usuario currentUser)
+        private void OnNavigateBack(User currentUser)
         {
             // Navegar de vuelta a la página de administración de usuarios
-            NavigationService.Navigate(new AdminUsuariosPage(currentUser));
+            NavigationService.Navigate(new UsersPage(currentUser));
         }
 
-        private void OnUsuarioSaved(Usuario currentUser, Usuario usuario)
+        private void OnUsuarioSaved(User currentUser, User usuario)
         {
             // Navegar de vuelta a la página de administración de usuarios después de guardar
-            NavigationService.Navigate(new AdminUsuariosPage(currentUser));
+            NavigationService.Navigate(new UsersPage(currentUser));
         }
 
         private void Page_Unloaded(object sender, System.Windows.RoutedEventArgs e)

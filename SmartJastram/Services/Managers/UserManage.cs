@@ -13,20 +13,20 @@ namespace SmartJastram.Services.Managers
     /// <summary>
     /// Clase encargada de gestionar las operaciones de base de datos para los usuarios
     /// </summary>
-    public class UsuarioManage
+    public class UserManage
     {
         /// <summary>
         /// Obtiene todos los usuarios de la base de datos
         /// </summary>
         /// <returns>Lista de todos los usuarios</returns>
-        public ObservableCollection<Usuario> SelectAll()
+        public ObservableCollection<User> SelectAll()
         {
             List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM smartjastramapp.usuarios;");
-            ObservableCollection<Usuario> usuarios = new ObservableCollection<Usuario>();
+            ObservableCollection<User> usuarios = new ObservableCollection<User>();
 
             foreach (List<Object> c in aux)
             {
-                usuarios.Add(new Usuario(
+                usuarios.Add(new User(
                     Convert.ToInt32(c[0]),     // ID
                     c[1].ToString(),          // Nombre
                     c[2].ToString(),          // Apellidos
@@ -59,7 +59,7 @@ namespace SmartJastram.Services.Managers
         /// </summary>
         /// <param name="usuario">El objeto Usuario a insertar</param>
         /// <param name="contraseñaSinCifrar">Si es true, cifrará la contraseña antes de insertar</param>
-        public void Insert(Usuario usuario)
+        public void Insert(User usuario)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = @"INSERT INTO smartjastramapp.usuarios 
@@ -88,7 +88,7 @@ namespace SmartJastram.Services.Managers
         /// </summary>
         /// <param name="usuario">El objeto Usuario con los datos actualizados</param>
         /// <param name="contraseñaSinCifrar">Si es true, cifrará la contraseña antes de actualizar</param>
-        public void Modify(Usuario usuario, Boolean hasNewPassword = true)
+        public void Modify(User usuario, Boolean hasNewPassword = true)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = @"UPDATE smartjastramapp.usuarios SET 
@@ -125,7 +125,7 @@ namespace SmartJastram.Services.Managers
         /// Elimina un usuario de la base de datos
         /// </summary>
         /// <param name="usuario">El objeto Usuario a eliminar</param>
-        public void Delete(Usuario usuario)
+        public void Delete(User usuario)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = "DELETE FROM smartjastramapp.usuarios WHERE ID = @ID;";
@@ -141,7 +141,7 @@ namespace SmartJastram.Services.Managers
         /// </summary>
         /// <param name="id">ID del usuario a buscar</param>
         /// <returns>El objeto Usuario o null si no se encuentra</returns>
-        public Usuario FindById(int id)
+        public User FindById(int id)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = "SELECT * FROM smartjastramapp.usuarios WHERE ID = @ID;";
@@ -153,7 +153,7 @@ namespace SmartJastram.Services.Managers
 
             if (aux.Count > 0 && aux[0] is List<object> c && c.Count > 0)
             {
-                return new Usuario(
+                return new User(
                     Convert.ToInt32(c[0]),     // ID
                     c[1].ToString(),          // Nombre
                     c[2].ToString(),          // Apellidos
@@ -171,7 +171,7 @@ namespace SmartJastram.Services.Managers
         /// </summary>
         /// <param name="email">Email o parte de él para buscar</param>
         /// <returns>Lista de usuarios que coinciden con la búsqueda</returns>
-        public List<Usuario> FindByEmail(string email)
+        public List<User> FindByEmail(string email)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = "SELECT * FROM smartjastramapp.usuarios WHERE Email LIKE @Email;";
@@ -180,11 +180,11 @@ namespace SmartJastram.Services.Managers
                 {"@Email", $"%{email}%"}
             };
             List<Object> aux = dbBroker.leer(query, parameters);
-            List<Usuario> resultados = new List<Usuario>();
+            List<User> resultados = new List<User>();
 
             foreach (List<Object> c in aux)
             {
-                resultados.Add(new Usuario(
+                resultados.Add(new User(
                     Convert.ToInt32(c[0]),     // ID
                     c[1].ToString(),          // Nombre
                     c[2].ToString(),          // Apellidos
@@ -202,7 +202,7 @@ namespace SmartJastram.Services.Managers
         /// </summary>
         /// <param name="nombre">Nombre o apellidos para buscar</param>
         /// <returns>Lista de usuarios que coinciden con la búsqueda</returns>
-        public List<Usuario> FindByName(string nombre)
+        public List<User> FindByName(string nombre)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = @"SELECT * FROM smartjastramapp.usuarios 
@@ -213,11 +213,11 @@ namespace SmartJastram.Services.Managers
                 {"@Apellidos", $"%{nombre}%"}
             };
             List<Object> aux = dbBroker.leer(query, parameters);
-            List<Usuario> resultados = new List<Usuario>();
+            List<User> resultados = new List<User>();
 
             foreach (List<Object> c in aux)
             {
-                resultados.Add(new Usuario(
+                resultados.Add(new User(
                     Convert.ToInt32(c[0]),     // ID
                     c[1].ToString(),          // Nombre
                     c[2].ToString(),          // Apellidos
@@ -236,7 +236,7 @@ namespace SmartJastram.Services.Managers
         /// <param name="email">Email del usuario</param>
         /// <param name="contraseña">Contraseña del usuario (ya cifrada con SHA512)</param>
         /// <returns>El objeto Usuario si las credenciales son válidas, null en caso contrario</returns>
-        public Usuario Autenticar(string email, string contraseña)
+        public User Autenticar(string email, string contraseña)
         {
             DBBroker dbBroker = DBBroker.obtenerAgente();
             string query = "SELECT * FROM smartjastramapp.usuarios WHERE Email = @Email AND Contraseña = @Contraseña;";
@@ -249,7 +249,7 @@ namespace SmartJastram.Services.Managers
 
             if (aux.Count > 0 && aux[0] is List<object> c && c.Count > 0)
             {
-                return new Usuario(
+                return new User(
                     Convert.ToInt32(c[0]),     // ID
                     c[1].ToString(),          // Nombre
                     c[2].ToString(),          // Apellidos

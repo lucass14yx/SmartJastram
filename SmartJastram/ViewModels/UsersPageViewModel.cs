@@ -7,26 +7,26 @@ using SmartJastram.Services.Managers;
 
 namespace SmartJastram.ViewModels
 {
-    public class AdminUsuariosPageViewModel : BaseViewModel
+    public class UsersPageViewModel : BaseViewModel
     {
-        private Usuario _currentUser;
-        private ObservableCollection<Usuario> _usuarios;
-        private Usuario _selectedUsuario;
-        private readonly UsuarioManage _usuarioManage;
+        private User _currentUser;
+        private ObservableCollection<User> _usuarios;
+        private User _selectedUsuario;
+        private readonly UserManage _usuarioManage;
 
-        public Usuario CurrentUser
+        public User CurrentUser
         {
             get => _currentUser;
             set => SetProperty(ref _currentUser, value);
         }
 
-        public ObservableCollection<Usuario> Usuarios
+        public ObservableCollection<User> Usuarios
         {
             get => _usuarios;
             set => SetProperty(ref _usuarios, value);
         }
 
-        public Usuario SelectedUsuario
+        public User SelectedUsuario
         {
             get => _selectedUsuario;
             set
@@ -52,13 +52,13 @@ namespace SmartJastram.ViewModels
 
         // Eventos para navegación
         public event Action NavigateToNewUsuarioRequested;
-        public event Action<Usuario> EditUsuarioRequested;
+        public event Action<User> EditUsuarioRequested;
 
-        public AdminUsuariosPageViewModel(Usuario currentUser)
+        public UsersPageViewModel(User currentUser)
         {
             CurrentUser = currentUser;
-            _usuarioManage = new UsuarioManage();
-            Usuarios = new ObservableCollection<Usuario>();
+            _usuarioManage = new UserManage();
+            Usuarios = new ObservableCollection<User>();
 
             // Inicializar comandos
             NavigateToNewUsuarioCommand = new RelayCommand(ExecuteNavigateToNewUsuario, CanExecuteNavigateToNewUsuario);
@@ -104,12 +104,12 @@ namespace SmartJastram.ViewModels
 
         private bool CanExecuteEditOrDeleteUsuario(object parameter)
         {
-            return CanManageUsuarios && parameter is Usuario;
+            return CanManageUsuarios && parameter is User;
         }
 
         private void ExecuteEditUsuario(object parameter)
         {
-            if (parameter is Usuario usuarioToEdit)
+            if (parameter is User usuarioToEdit)
             {
                 EditUsuarioRequested?.Invoke(usuarioToEdit);
             }
@@ -117,7 +117,7 @@ namespace SmartJastram.ViewModels
 
         private void ExecuteDeleteUsuario(object parameter)
         {
-            if (parameter is Usuario usuarioToDelete)
+            if (parameter is User usuarioToDelete)
             {
                 var result = MessageBox.Show($"¿Está seguro que desea eliminar el usuario '{usuarioToDelete.Nombre} {usuarioToDelete.Apellidos}'?",
                                            "Confirmar Eliminación",

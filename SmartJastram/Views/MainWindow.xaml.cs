@@ -6,7 +6,7 @@ namespace SmartJastram.Views
 {
     public partial class MainWindow : Window
     {
-        public MainWindow(Usuario currentUser)
+        public MainWindow(User currentUser)
         {
             InitializeComponent();
             DataContext = new MainViewModel(currentUser); // Inyecta el usuario

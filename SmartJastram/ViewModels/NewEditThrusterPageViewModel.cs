@@ -12,10 +12,10 @@ using System.IO;
 
 namespace SmartJastram.ViewModels
 {
-    public class NewPropulsorPageViewModel : BaseViewModel
+    public class NewEditThrusterPageViewModel : BaseViewModel
     {
         private readonly BUTypeManage _manager;
-        private readonly Usuario _currentUser;
+        private readonly User _currentUser;
         private BUType _propulsorToEdit;
         private bool _isEditMode;
 
@@ -367,11 +367,11 @@ namespace SmartJastram.ViewModels
         #endregion
 
         #region Eventos
-        public event Action<Usuario> NavigateBackRequested;
-        public event Action<Usuario, BUType> PropulsorSaved;
+        public event Action<User> NavigateBackRequested;
+        public event Action<User, BUType> PropulsorSaved;
         #endregion
 
-        public NewPropulsorPageViewModel(Usuario currentUser, BUType propulsorToEdit = null)
+        public NewEditThrusterPageViewModel(User currentUser, BUType propulsorToEdit = null)
         {
             _currentUser = currentUser;
             _manager = new BUTypeManage();
@@ -584,7 +584,7 @@ namespace SmartJastram.ViewModels
             );
         }
 
-        public Usuario CurrentUser => _currentUser;
+        public User CurrentUser => _currentUser;
 
         
     }

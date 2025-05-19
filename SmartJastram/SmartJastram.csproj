@@ -128,34 +128,34 @@
     <Compile Include="Helpers\SecurityHelper.cs" />
     <Compile Include="Services\DBBroker.cs" />
     <Compile Include="Services\Managers\BUTypeManage.cs" />
-    <Compile Include="Services\Managers\UsuarioManage.cs" />
-    <Compile Include="ViewModels\AdminUsuariosPageViewModel.cs" />
+    <Compile Include="Services\Managers\UserManage.cs" />
+    <Compile Include="ViewModels\UsersPageViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Command\RelayCommand.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\NewPropulsorPageViewModel.cs" />
-    <Compile Include="ViewModels\NewUsuarioPageViewModel.cs" />
-    <Compile Include="ViewModels\PropulsoresPageViewModel.cs" />
-    <Compile Include="Views\AdminUsuariosPage.xaml.cs">
-      <DependentUpon>AdminUsuariosPage.xaml</DependentUpon>
+    <Compile Include="ViewModels\NewEditThrusterPageViewModel.cs" />
+    <Compile Include="ViewModels\NewEditUserPageViewModel.cs" />
+    <Compile Include="ViewModels\ThrustersPageViewModel.cs" />
+    <Compile Include="Views\UsersPage.xaml.cs">
+      <DependentUpon>UsersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewPropulsorPage.xaml.cs">
-      <DependentUpon>NewPropulsorPage.xaml</DependentUpon>
+    <Compile Include="Views\NewEditThrusterPage.xaml.cs">
+      <DependentUpon>NewEditThrusterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewUsuarioPage.xaml.cs">
-      <DependentUpon>NewUsuarioPage.xaml</DependentUpon>
+    <Compile Include="Views\NewEditUserPage.xaml.cs">
+      <DependentUpon>NewEditUserPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PropulsoresPage.xaml.cs">
-      <DependentUpon>PropulsoresPage.xaml</DependentUpon>
+    <Compile Include="Views\ThrustersPage.xaml.cs">
+      <DependentUpon>ThrustersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowForImg.xaml.cs">
       <DependentUpon>WindowForImg.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AdminUsuariosPage.xaml">
+    <Page Include="Views\UsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,15 +175,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\NewPropulsorPage.xaml">
+    <Page Include="Views\NewEditThrusterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NewUsuarioPage.xaml">
+    <Page Include="Views\NewEditUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PropulsoresPage.xaml">
+    <Page Include="Views\ThrustersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -194,7 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\BUType.cs" />
-    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

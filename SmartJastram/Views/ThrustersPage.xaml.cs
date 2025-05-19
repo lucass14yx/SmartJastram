@@ -9,16 +9,16 @@ namespace SmartJastram.Views
     /// <summary>
     /// Lógica de interacción para PropulsoresPage.xaml
     /// </summary>
-    public partial class PropulsoresPage : Page
+    public partial class ThrustersPage : Page
     {
-        private PropulsoresPageViewModel _viewModel;
+        private ThrustersPageViewModel _viewModel;
 
-        public PropulsoresPage(Usuario currentUser)
+        public ThrustersPage(User currentUser)
         {
             InitializeComponent();
 
             // Inicializar el ViewModel y establecerlo como DataContext
-            _viewModel = new PropulsoresPageViewModel(currentUser);
+            _viewModel = new ThrustersPageViewModel(currentUser);
             this.DataContext = _viewModel;
 
             // Suscribirse a los eventos del ViewModel
@@ -29,7 +29,7 @@ namespace SmartJastram.Views
         private void OnNavigateToNewPropulsor()
         {
             // Navegar a la página de nuevo propulsor
-            NavigationService.Navigate(new NewPropulsorPage(_viewModel.CurrentUser));
+            NavigationService.Navigate(new NewEditThrusterPage(_viewModel.CurrentUser));
         }
 
         private void OnEditPropulsor(BUType propulsorToEdit)
@@ -37,7 +37,7 @@ namespace SmartJastram.Views
             // Navegar a la página de edición de propulsor
             // Puedes crear una página de edición o reutilizar la de nuevo propulsor
             // pasando el propulsor a editar
-            NavigationService.Navigate(new NewPropulsorPage(_viewModel.CurrentUser, propulsorToEdit));
+            NavigationService.Navigate(new NewEditThrusterPage(_viewModel.CurrentUser, propulsorToEdit));
         }
 
         // Método para limpiar los eventos al descargar la página

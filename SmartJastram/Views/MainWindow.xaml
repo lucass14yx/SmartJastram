@@ -76,7 +76,7 @@
                             Background="Transparent" 
                             Foreground="White" 
                             BorderThickness="0"
-                            />
+                            Command="{Binding NavigateToReportsCommand}"/>
 
                     <Button Content="Administración de Usuarios" 
                             Height="40" 

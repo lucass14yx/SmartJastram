@@ -1,0 +1,81 @@
+﻿<Page x:Class="SmartJastram.Views.ReportsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SmartJastram.Views"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+      xmlns:viewmodels="clr-namespace:SmartJastram.ViewModels"
+      xmlns:helpers="clr-namespace:SmartJastram.Helpers"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReportsPage">
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Título de la página -->
+        <TextBlock Grid.Row="0" 
+                   Text="Informes" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,20"/>
+
+        <!-- Controles de búsqueda/filtrado -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+
+            <Button Content="Actualizar" Width="80" Height="25" Command="{Binding RefreshPropulsoresCommand}"/>
+            <Button Content="Nuevo Propulsor" Width="120" Height="25" Margin="20,0,0,0" 
+                    Command="{Binding NavigateToNewPropulsorCommand}"
+                    Visibility="{Binding CanManagePropulsores, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        </StackPanel>
+
+        <!-- DataGrid con los propulsores -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+              HorizontalScrollBarVisibility="Auto"
+              Margin="5" Grid.Row="2">
+            <DataGrid AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              HeadersVisibility="Column"
+              ScrollViewer.CanContentScroll="True"
+              HorizontalScrollBarVisibility="Visible"
+              VerticalScrollBarVisibility="Disabled"
+              ItemsSource="{Binding Propulsores}"
+              SelectedItem="{Binding SelectedPropulsor}">
+
+                <DataGrid.Columns>
+                    
+                    <DataGridTextColumn Header="Designación" Binding="{Binding Designacion}" MinWidth="80" CanUserResize="False"/>
+                    <DataGridTextColumn Header="BU No." Binding="{Binding BUno}" MinWidth="80" CanUserResize="False"/>
+                    <DataGridTextColumn Header="BU Type" Binding="{Binding BUtype}" MinWidth="80" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Created by" Binding="{Binding CreatedBy}" MinWidth="80" CanUserResize="False"/>
+                    <DataGridTextColumn Header="Created on" Binding="{Binding CreatedOn}" MinWidth="180" CanUserResize="False"/>
+                    <DataGridTemplateColumn Header="Acciones" MinWidth="130" CanUserResize="False" 
+                                          Visibility="{Binding DataContext.CanManagePropulsores, RelativeSource={RelativeSource AncestorType=DataGrid}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Abrir" Width="60" Margin="0,0,5,0" 
+                                            Command="{Binding DataContext.EditPropulsorCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                            CommandParameter="{Binding}"/>
+                                    <Button Content="Eliminar" Width="60" 
+                                            Command="{Binding DataContext.DeletePropulsorCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                            CommandParameter="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Page>

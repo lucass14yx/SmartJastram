@@ -26,11 +26,14 @@ namespace SmartJastram.ViewModels
         public ICommand NavigateToPropulsoresCommand { get; }
         public ICommand NavigateToUsersCommand { get; }
 
+        public ICommand NavigateToReportsCommand { get; }
+
         public MainViewModel(User currentUser)
         {
             CurrentUser = currentUser;
             NavigateToPropulsoresCommand = new RelayCommand(NavigateToPropulsores);
             NavigateToUsersCommand = new RelayCommand(NavigateToUsers);
+            NavigateToReportsCommand = new RelayCommand(NavigateToReports);
 
             // Página inicial
             NavigateToPropulsores(null);
@@ -51,6 +54,10 @@ namespace SmartJastram.ViewModels
             {
                 MessageBox.Show("No tiene permisos para acceder a esta sección.", "Acceso denegado", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+        private void NavigateToReports(object parameter)
+        {
+            CurrentPage = new ReportsPage(CurrentUser);
         }
     }
 }

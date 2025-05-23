@@ -54,6 +54,7 @@ namespace SmartJastram.ViewModels
         public ICommand DeletePropulsorCommand { get; }
         public ICommand RefreshPropulsoresCommand { get; }
         public ICommand VerImagenCommand { get; }
+        public ICommand GenerateReport { get; }
 
         public event Action NavigateToNewPropulsorRequested;
         public event Action<BUType> EditPropulsorRequested;
@@ -69,6 +70,7 @@ namespace SmartJastram.ViewModels
             DeletePropulsorCommand = new RelayCommand(ExecuteDeletePropulsor, CanExecuteEditOrDeletePropulsor);
             RefreshPropulsoresCommand = new RelayCommand(LoadPropulsores);
             VerImagenCommand = new RelayCommand(ExecuteVerImagen);
+            GenerateReport = new RelayCommand(ExecuteGenerateReport);
 
             LoadPropulsores(null); // Load initial data
             OnPropertyChanged(nameof(CanManagePropulsores)); // Notify that CanManagePropulsores might have changed
@@ -152,10 +154,20 @@ namespace SmartJastram.ViewModels
         {
             if (parameter is BUType propulsor)
             {
-                WindowForImg imgWin = new WindowForImg(Base64Helper.FromBase64ToImage(propulsor.IMG),propulsor.Designacion);
+                WindowForImg imgWin = new WindowForImg(Base64Helper.FromBase64ToImage(propulsor.IMG), propulsor.Designacion);
                 imgWin.Show();
-                
+
             }
         }
+        private void ExecuteGenerateReport(object parameter)
+        {
+            if (parameter is BUType propulsor)
+            {
+                string pdfReport = GeneratePDFHelper.GeneratePdfAsBase64_butypes(propulsor);
+                WindowForPDF pdfWin = new WindowForPDF(Base64Helper.FromBase64toPDF(pdfReport), propulsor.Designacion);
+                pdfWin.Show();
+            }
+        }
+    
     }
 }

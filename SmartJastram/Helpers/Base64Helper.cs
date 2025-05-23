@@ -43,6 +43,23 @@ namespace SmartJastram.Helpers
                 throw new InvalidOperationException("Failed to convert Base64 to image", ex);
             }
         }
+        public static byte[] FromBase64toPDF(string base64String)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(base64String))
+                {
+                    throw new ArgumentException("La cadena Base64 no puede estar vacía.");
+                }
+
+                // Convertir Base64 a bytes
+                return FromBase64String(base64String);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al convertir Base64 a PDF: {ex.Message}");
+            }
+        }
 
 
 

@@ -221,7 +221,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\HtmlTemplates\BU_type.html" />
+    <Content Include="Resources\HtmlTemplates\Thruster_Tunnel_Gap_Test.html" />
+    <Resource Include="Resources\jastram_logo.png" />
+    <Resource Include="Resources\thruster_tunnel_gap_4blades.png" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

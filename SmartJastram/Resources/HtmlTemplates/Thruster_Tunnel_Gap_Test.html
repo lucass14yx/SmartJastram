@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thruster Tunnel Gap Test</title>
+    <style>
+        /* Configuración de la página */
+        @page {
+            margin: 10mm;
+            size: A4;
+        }
+
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            padding: 0;
+            margin: 0;
+            counter-reset: page;
+        }
+
+        /* Contenedor de página */
+        .page {
+            position: relative;
+            height: 297mm;
+            width: 210mm;
+            page-break-after: always;
+            padding: 0;
+            box-sizing: border-box;
+            counter-increment: page;
+        }
+
+            .page:last-child {
+                page-break-after: avoid;
+            }
+
+        /* Encabezado */
+        .header {
+            height: 150px;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-text {
+            font-size: 18px;
+            color: #808080;
+        }
+
+        .header-logo {
+            text-align: right;
+            font-size: 15px;
+            color: #000000;
+        }
+
+            .header-logo img {
+                height: 80px;
+            }
+
+        /* Contenido principal */
+        .content {
+            margin-bottom: 90px;
+            padding: 0 40px;
+        }
+
+        /* Pie de página */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            border-top: 1px solid #ccc;
+            font-size: 10px;
+            color: #666;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-center {
+            text-align: center;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+            .footer-right::before {
+                content: "Page " counter(page) " of ";
+            }
+
+            .footer-right::after {
+                content: "2"; /* Ajustado para 2 páginas; usa variable si es dinámico */
+            }
+
+        /* Estilos adicionales */
+        .grey {
+            color: #808080;
+            text-align: left;
+            padding: 10px 40px;
+        }
+
+        .sign {
+            text-align: right;
+            padding: 10px;
+            align-items: inherit;
+        }
+
+            .sign img {
+                height: 70px;
+            }
+
+        /* Encabezados */
+        h1 {
+            color: #005b8c;
+        }
+
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Imagen de 4 blades */
+        .img4Blades {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 5px 20px;
+            margin-top: 10px;
+            border-top: 2px solid #ccc;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .img4 {
+            height: 200px;
+            width: auto;
+            object-fit: contain;
+            margin-top: 10px;
+        }
+
+        /* Gráfico de radar */
+        .radarchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 5px 20px;
+            margin-top: 10px;
+        }
+
+        .chart4blades {
+            height: 350px;
+            width: auto;
+            object-fit: contain;
+            margin-top: 10px;
+        }
+
+        /* Placeholder para fecha */
+        .date-placeholder::after {
+            content: attr(data-date);
+        }
+
+        /* Caja para valores */
+        .box {
+            display: inline-block;
+            padding: 5px;
+            font-family: Arial;
+            width: 35px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Página 1 -->
+    <div class="page">
+        <div class="header">
+            <div class="header-text">
+                BU No.: @{triggerBody()?['field_1']}
+            </div>
+            <div class="header-logo">
+                <img src="@{dataUri(body('Get_file_content_(JastramLogo)'))}" alt="Company Logo">
+                </br>
+                Jastram GmbH & Co. KG</br>
+                Billwerder Billdeich 603</br>
+                D - 21033 Hamburg</br>
+                Germany
+            </div>
+        </div>
+        <div class="content">
+            <h1>Thruster Tunnel Gap Test</h1>
+            <table>
+                <tr>
+                    <th>Order No.:</th>
+                    <td>@{triggerBody()?['field_3']}</td>
+                </tr>
+                <tr>
+                    <th>Drawing No.:</th>
+                    <td>@{triggerBody()?['field_4']}</td>
+                </tr>
+                <tr>
+                    <th>BU No.:</th>
+                    <td>@{triggerBody()?['field_1']}</td>
+                </tr>
+                <tr>
+                    <th>BU Type:</th>
+                    <td>@{triggerBody()?['field_7']}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>Tunnel ø [mm]:</td>
+                    <td>@{triggerBody()?['field_5']}</td>
+                </tr>
+                <tr>
+                    <td>Propeller ø [mm]:</td>
+                    <td>@{triggerBody()?['field_6']}</td>
+                </tr>
+                <tr>
+                    <td>Stain. Steel Ring ø [mm]:</td>
+                    <td>@{triggerBody()?['field_8']}</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Gap Betw. Stainl. Steel Ring And Propeller [mm]</td>
+                    <td><span class="box">max:</span> @{triggerBody()?['field_9']}</td>
+                </tr>
+                <tr>
+                    <td><span class="box">min:</span> @{triggerBody()?['field_10']}</td>
+                </tr>
+                <tr>
+                    <td>Number Of Blades:</td>
+                    <td>@{triggerBody()?['field_2']}</td>
+                </tr>
+            </table>
+            <div class="img4Blades">
+                <h3>Delivery Control: Clearance between propeller and stainless steel ring</h3>
+                <img src="@{dataUri(body('Get_file_content_(4blades_image)'))}" class="img4" alt="Propeller Image">
+            </div>
+            <table border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; text-align: center;">
+                <tr>
+                    <th>Prop. Blade</th> <!-- esquina superior izquierda vacía -->
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    <th>G</th>
+                    <th>H</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td>@{triggerBody()?['field_14']}</td>
+                    <td>@{triggerBody()?['field_15']}</td>
+                    <td>@{triggerBody()?['field_16']}</td>
+                    <td>@{triggerBody()?['field_17']}</td>
+                    <td>@{triggerBody()?['field_18']}</td>
+                    <td>@{triggerBody()?['field_27']}</td>
+                    <td>@{triggerBody()?['field_20']}</td>
+                    <td>@{triggerBody()?['field_21']}</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>@{triggerBody()?['field_22']}</td>
+                    <td>@{triggerBody()?['field_23']}</td>
+                    <td>@{triggerBody()?['field_24']}</td>
+                    <td>@{triggerBody()?['field_25']}</td>
+                    <td>@{triggerBody()?['field_26']}</td>
+                    <td>@{triggerBody()?['field_27']}</td>
+                    <td>@{triggerBody()?['field_28']}</td>
+                    <td>@{triggerBody()?['field_29']}</td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td>@{triggerBody()?['field_30']}</td>
+                    <td>@{triggerBody()?['field_31']}</td>
+                    <td>@{triggerBody()?['field_32']}</td>
+                    <td>@{triggerBody()?['field_33']}</td>
+                    <td>@{triggerBody()?['field_34']}</td>
+                    <td>@{triggerBody()?['field_35']}</td>
+                    <td>@{triggerBody()?['field_36']}</td>
+                    <td>@{triggerBody()?['field_37']}</td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td>@{triggerBody()?['field_38']}</td>
+                    <td>@{triggerBody()?['field_39']}</td>
+                    <td>@{triggerBody()?['field_40']}</td>
+                    <td>@{triggerBody()?['field_41']}</td>
+                    <td>@{triggerBody()?['field_42']}</td>
+                    <td>@{triggerBody()?['field_43']}</td>
+                    <td>@{triggerBody()?['field_44']}</td>
+                    <td>@{triggerBody()?['field_45']}</td>
+                </tr>
+            </table>
+
+
+        </div>
+        <div class="footer">
+            <div class="footer-left">Thruster Tunnel Gap Test 4 SK3920</div>
+            <div class="footer-center">Created on: <span class="current-date">@{formatDateTime(utcNow(), 'dd.MM.yyyy')}</span></div>
+            <div class="footer-right"></div>
+        </div>
+    </div>
+
+    <!-- Página 2 (ejemplo, ajustar según contenido real) -->
+    <div class="page">
+        <div class="header">
+            <div class="header-text">
+                BU No.: @{triggerBody()?['field_1']}
+            </div>
+            <div class="header-logo">
+                <img src="@{dataUri(body('Get_file_content_(JastramLogo)'))}" alt="Company Logo">
+
+
+            </div>
+        </div>
+        <div class="content">
+            <h1>Thruster Tunnel Gap Test</h1>
+            <div class="radarchart">
+                <h3>Radar Chart</h3>
+                <img src="@{dataUri(body('HTTP_4'))}" class="chart4blades" alt="Radar Chart">
+            </div>
+
+            <div class="sign">
+
+                <table style="width: 30%; border-collapse: collapse; margin: 20px auto; float: right;">
+                    <tr>
+                        <td>Inspector</td>
+                        <td>@{triggerBody()?['field_11']}</td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>@{formatDateTime(triggerBody()?['field_12'], 'dd.MM.yyyy')}</td>
+                    </tr>
+                    <tr>
+                        <td>Signed</td>
+                        <td>
+                            <img src=@{triggerBody()?['field_13']} alt="Signature">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Añade más tablas o contenido dinámico aquí -->
+        </div>
+        <div class="footer">
+            <div class="footer-left">Thruster Tunnel Gap Test 4 SK3920</div>
+            <div class="footer-center">Created on: <span class="current-date">@{formatDateTime(utcNow(), 'dd.MM.yyyy')}</span></div>
+            <div class="footer-right"></div>
+        </div>
+    </div>
+</body>
+</html>

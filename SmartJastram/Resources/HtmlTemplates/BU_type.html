@@ -6,41 +6,38 @@
     <style>
         /* Configuración de la página */
         @page {
-            margin: 10mm;
             size: A4;
+            margin: 0;
         }
 
         /* Estilos generales del cuerpo */
         body {
             font-family: Arial, sans-serif;
-            font-size: 12px;
-            padding: 0;
+            font-size: 12pt;
             margin: 0;
-            counter-reset: page;
-        }
-
-        /* Contenedor de página */
-        .page {
-            position: relative;
-            height: 297mm;
-            width: 210mm;
-            page-break-after: always;
             padding: 0;
+            width: 100%;
+            min-height: 100vh;
             box-sizing: border-box;
-            counter-increment: page;
+            display: flex;
+            flex-direction: column;
         }
 
-            .page:last-child {
-                page-break-after: avoid;
-            }
+        /* Contenedor principal */
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+        }
 
         /* Encabezado */
         .header {
-            height: 150px;
-            padding: 10px 40px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .header-text {
@@ -50,23 +47,25 @@
 
         .header-logo {
             text-align: right;
-            font-size: 15px;
+            font-size: 12px;
             color: #000000;
         }
 
             .header-logo img {
-                height: 80px;
+                height: 60px;
+                margin-bottom: 5px;
             }
 
         /* Contenido principal */
         .content {
-            margin-bottom: 90px;
-            padding: 0 40px;
+            flex: 1;
+            padding: 0 40px 20px 40px;
+            margin-bottom: 80px; /* Espacio para el footer */
         }
 
         /* Pie de página */
         .footer {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
@@ -78,6 +77,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: white;
+            box-sizing: border-box;
         }
 
         .footer-left {
@@ -92,97 +93,98 @@
             text-align: right;
         }
 
-            .footer-right::before {
-                content: "Page " counter(page) " of ";
-            }
-
-            .footer-right::after {
-                content: "1";
-            }
-
-        /* Estilos adicionales */
-        .grey {
-            color: #808080;
-            text-align: left;
-            padding: 10px 40px;
-        }
-
         /* Encabezados */
         h1 {
             color: #005b8c;
+            margin: 20px 0;
+            font-size: 20px;
         }
 
         /* Tablas */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 11px;
         }
 
         th, td {
             text-align: left;
-            padding: 8px;
+            padding: 6px 8px;
             border: 1px solid #ddd;
         }
 
         th {
             background-color: #f2f2f2;
+            font-weight: bold;
         }
-
 
         .tabledata {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            
+            margin-top: 10px;
         }
 
             .tabledata table {
-                margin-top: 5px;
-                height: auto;
+                width: 80%;
+                margin: 0 auto;
             }
 
-        /* Placeholder para fecha */
-        .date-placeholder::after {
-            content: attr(data-date);
+            .tabledata th, .tabledata td {
+                text-align: center;
+            }
+
+        /* Ajustes para impresión */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .footer {
+                position: fixed;
+                bottom: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Página 1 -->
-    <div class="page">
+    <div class="page-container">
         <div class="header">
             <div class="header-text">
                 BU type: @{triggerBody()?['BUType']}
             </div>
             <div class="header-logo">
                 <img src="@{dataUri(body('Get_file_content_(JastramLogo)'))}" alt="Company Logo">
-                </br>
-                Jastram GmbH & Co. KG</br>
-                Billwerder Billdeich 603</br>
-                D - 21033 Hamburg</br>
+                <br>
+                Jastram GmbH & Co. KG<br>
+                Billwerder Billdeich 603<br>
+                D - 21033 Hamburg<br>
                 Germany
             </div>
         </div>
+
         <div class="content">
             <h1>BU-type specifications</h1>
-            
-            <table style="margin-bottom: 10px;">
+
+            <table>
                 <tr>
-                    <td>Gear ratio    i=</td>
+                    <td><strong>Gear ratio i=</strong></td>
                     <td>@{triggerBody()?['GearRatio']}</td>
                 </tr>
                 <tr>
-                    <td>n1=</td>
+                    <td><strong>n1=</strong></td>
                     <td>@{triggerBody()?['N1Value']}</td>
                 </tr>
                 <tr>
-                    <td>n2=</td>
+                    <td><strong>n2=</strong></td>
                     <td>@{triggerBody()?['N2Value']}</td>
                 </tr>
             </table>
-            <table style="margin-bottom: 10px;">
+
+            <table>
                 <tr>
                     <th>B:</th>
                     <td>@{triggerBody()?['B']}</td>
@@ -231,12 +233,10 @@
                     <th>l2:</th>
                     <td>@{triggerBody()?['l2']}</td>
                 </tr>
-
             </table>
 
-         
             <div class="tabledata">
-                <table border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; text-align: center; margin-bottom: 10px;">
+                <table border="1" cellspacing="0" cellpadding="5">
                     <tr>
                         <th>Gear:</th>
                         <td>@{triggerBody()?['Gear']}</td>
@@ -251,7 +251,7 @@
                     </tr>
                     <tr>
                         <th>Tunnel:</th>
-                        <td>@{triggerBody()?['Tunnnel']}</td>
+                        <td>@{triggerBody()?['Tunnel']}</td>
                     </tr>
                     <tr>
                         <th>per Meter:</th>
@@ -279,19 +279,13 @@
                     </tr>
                 </table>
             </div>
-            
-
-
-
-
         </div>
+
         <div class="footer">
             <div class="footer-left">BU-type Specifications @{triggerBody()?['BUType']}</div>
-            <div class="footer-center">Created on: <span class="current-date">@{formatDateTime(utcNow(),'dd.MM.yyyy')}</span></div>
-            <div class="footer-right"></div>
+            <div class="footer-center">Created on: @{formatDateTime(utcNow(),'dd.MM.yyyy')}</div>
+            <div class="footer-right">Page 1 of 1</div>
         </div>
     </div>
-
-
 </body>
 </html>

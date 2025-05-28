@@ -21,11 +21,6 @@ namespace SmartJastram.Views
             this.Closed += WindowForPDF_Closed;
         }
 
-        public WindowForPDF(string pdfBase64, string titulo = "Documento PDF") : this()
-        {
-            this.Title = titulo;
-            _pdfBytes = Convert.FromBase64String(pdfBase64);
-        }
 
         public WindowForPDF(byte[] pdfBytes, string titulo = "Documento PDF") : this()
         {

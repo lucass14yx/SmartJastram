@@ -17,7 +17,7 @@
             <Button x:Name="btnSavePdf" Content="Guardar PDF" Click="BtnSavePdf_Click" 
                     ToolTip="Guardar PDF en disco"/>
             <Separator/>
-            <TextBlock Text="Zoom:"/>
+            <TextBlock Text="Zoom:" VerticalAlignment="Center"/>
             <ComboBox x:Name="cmbZoom" Width="80" SelectedIndex="4" SelectionChanged="CmbZoom_SelectionChanged">
                 <ComboBoxItem Content="50%"/>
                 <ComboBoxItem Content="75%"/>

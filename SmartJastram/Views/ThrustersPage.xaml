@@ -61,7 +61,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Imagen" MinWidth="60" CanUserResize="False">
+                    <DataGridTemplateColumn Header="Informe" MinWidth="60" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Generar" Width="60" Command="{Binding DataContext.GenerateReport, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
